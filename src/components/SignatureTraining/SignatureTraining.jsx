@@ -174,19 +174,19 @@ const SignatureTraining = () => {
         {/* STATS SECTION */}
         <div className={styles.statsContainer}>
           <div className={styles.statItem}>
-            <AnimatedCounter from={0} to={500} duration={2.5} suffix="+" />
+            <AnimatedCounter from={0} to={100} duration={2.5} suffix="+" />
             <span className={styles.statLabel}>Happy Members</span>
           </div>
           <div className={styles.statItem}>
-            <AnimatedCounter from={0} to={12} duration={2.5} />
-            <span className={styles.statLabel}>Professional Trainers</span>
+            <AnimatedCounter from={0} to={100} duration={2.5} suffix="%" />
+            <span className={styles.statLabel}>Friendly Environment</span>
           </div>
           <div className={styles.statItem}>
             <AnimatedCounter from={0} to={98} duration={2.5} suffix="%" />
             <span className={styles.statLabel}>Client Satisfaction</span>
           </div>
           <div className={styles.statItem}>
-            <AnimatedCounter from={0} to={15} duration={2.5} suffix="+" />
+            <AnimatedCounter from={0} to={10} duration={2.5} suffix="+" />
             <span className={styles.statLabel}>Years Experience</span>
           </div>
         </div>
