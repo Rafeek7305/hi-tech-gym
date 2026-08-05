@@ -8,10 +8,19 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 var(--padding-x);
-  background-color: #000000;
-  border-bottom: 1px solid var(--color-border);
+  background-color: transparent;
   z-index: var(--z-sticky);
-  transition: var(--transition-smooth);
+  transition: all 0.4s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.scrolled {
+  background-color: rgba(5, 5, 5, 0.45);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  height: 85px; /* Slightly shrink on scroll */
 }
 
 .logo {
@@ -24,24 +33,32 @@
   color: var(--color-text-primary);
   text-transform: uppercase;
   letter-spacing: 2px;
+  z-index: 101; /* Keep above mobile menu */
 }
 
-.logoIcon {
-  color: var(--color-primary);
+.logoImg {
+  height: 90px;
+  width: auto;
+  object-fit: contain;
+  mix-blend-mode: lighten;
+  transform: scale(1.2);
+  transform-origin: left center;
+  transition: all 0.3s ease;
 }
 
 .navLinks {
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .navLink {
-  color: var(--color-text-primary);
-  font-weight: 500;
-  font-size: 0.9rem;
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 0.95rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   position: relative;
+  transition: color 0.3s ease;
 }
 
 .navLink:hover {
@@ -51,7 +68,7 @@
 .navLink::after {
   content: '';
   position: absolute;
-  bottom: -4px;
+  bottom: -6px;
   left: 0;
   width: 0;
   height: 2px;
@@ -65,25 +82,91 @@
 
 .ctaBtn {
   background-color: var(--color-primary);
-  color: var(--color-bg-primary);
-  padding: 0.6rem 1.5rem;
-  border-radius: var(--border-radius-sm);
-  font-weight: 600;
+  color: #0A0A0A;
+  padding: 0.8rem 2rem;
+  border-radius: 4px;
+  font-weight: 800;
   font-size: 0.9rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: var(--transition-smooth);
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
 }
 
 .ctaBtn:hover {
-  background-color: #fff;
+  background-color: #FFFFFF;
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+  box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
 }
 
 .mobileMenuBtn {
   display: none;
-  color: var(--color-text-primary);
+  color: #FFFFFF;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 101; /* Keep above mobile menu */
+}
+
+/* MOBILE MENU OVERLAY */
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-100%);
+  transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.mobileMenuOpen {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobileNavLinks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.mobileNavLink {
+  color: #FFFFFF;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  transition: color 0.3s ease;
+}
+
+.mobileNavLink:hover {
+  color: var(--color-primary);
+}
+
+.mobileCtaBtn {
+  margin-top: 2rem;
+  background-color: var(--color-primary);
+  color: #0A0A0A;
+  padding: 1rem 3rem;
+  border-radius: 4px;
+  font-weight: 800;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  border: none;
 }
 
 /* Mobile Responsive */
@@ -94,5 +177,24 @@
   
   .mobileMenuBtn {
     display: block;
+  }
+  
+  .navbar {
+    padding: 0 1.5rem;
+    height: 75px;
+    background-color: rgba(5, 5, 5, 0.45); /* Always glassy on mobile for readability */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .scrolled {
+    height: 70px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .logoImg {
+    height: 60px;
+    transform: scale(1.1);
   }
 }

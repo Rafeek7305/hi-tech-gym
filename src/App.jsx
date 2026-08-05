@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import Lenis from 'lenis';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
@@ -11,12 +13,10 @@ import Footer from './components/Footer/Footer';
 import Loader from './components/Loader/Loader';
 import Cursor from './components/Cursor/Cursor';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
-import Stats from './components/Stats/Stats';
 
 const Home = () => (
   <>
     <Hero />
-    <Stats />
     <About />
     <SignatureTraining />
     <Facilities />
@@ -29,6 +29,7 @@ function App() {
 
   // Initialize Lenis Smooth Scroll
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
@@ -36,19 +37,22 @@ function App() {
       gestureDirection: 'vertical',
       smooth: true,
       mouseMultiplier: 1,
-      smoothTouch: false,
+      smoothTouch: true,
       touchMultiplier: 2,
       infinite: false,
     });
 
+    lenis.on('scroll', ScrollTrigger.update);
+
     function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
+      lenis.raf(time * 1000);
     }
 
-    requestAnimationFrame(raf);
+    gsap.ticker.add(raf);
+    gsap.ticker.lagSmoothing(0);
 
     return () => {
+      gsap.ticker.remove(raf);
       lenis.destroy();
     };
   }, []);

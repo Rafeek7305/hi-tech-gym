@@ -246,18 +246,19 @@
 @media (max-width: 991px) {
   .aboutSection {
     min-height: auto;
-    padding: 6rem 1.5rem;
+    padding: 5rem 1.5rem;
   }
 
   .container {
-    flex-direction: column;
-    gap: 4rem;
+    flex-direction: column-reverse; /* Text on top, images below for better mobile flow */
+    gap: 3rem;
   }
 
   .imageColumn {
     width: 100%;
-    height: 450px;
-    margin-bottom: 2rem;
+    height: 400px;
+    margin-top: 2rem;
+    display: block; /* Ensure it renders properly */
   }
   
   .image1, .image2, .image3 {

@@ -8,7 +8,7 @@ import styles from './Facilities.module.css';
 import strengthImg from '../../assets/facility_strength.png';
 import functionalImg from '../../assets/facility_functional.png';
 import cardioImg from '../../assets/facility_cardio.png';
-import recoveryImg from '../../assets/facility_recovery.png';
+import recoveryImg from '../../assets/facility_recovery_v2.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -76,10 +76,26 @@ const Facilities = () => {
   };
 
   useEffect(() => {
-    // Only apply horizontal scroll animation on desktop sizes
+    // Header entry animation
+    let ctx = gsap.context(() => {
+      gsap.from(`.${styles.sectionHeader}`, {
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 80%',
+          once: true,
+        },
+        opacity: 0,
+        y: 50,
+        duration: 0.8,
+        ease: 'power4.out',
+        clearProps: 'all'
+      });
+    }, sectionRef);
+
+    // Apply horizontal scroll animation on all screen sizes
     const mm = gsap.matchMedia();
 
-    mm.add("(min-width: 992px)", () => {
+    mm.add("all", () => {
       const track = trackRef.current;
       const section = sectionRef.current;
       const bgImages = gsap.utils.toArray(`.${styles.bgImage}`);
@@ -104,9 +120,23 @@ const Facilities = () => {
         }
       });
 
-      // Parallax for Background Images
-      bgImages.forEach((img) => {
-        gsap.to(img, {
+      return () => {
+        tween.kill();
+      };
+    });
+
+    // Parallax for Background Images - DESKTOP ONLY
+    mm.add("(min-width: 992px)", () => {
+      const bgImages = gsap.utils.toArray(`.${styles.bgImage}`);
+      const track = trackRef.current;
+      
+      const getScrollAmount = () => {
+        let trackWidth = track.scrollWidth;
+        return -(trackWidth - window.innerWidth + 100);
+      };
+
+      const parallaxTweens = bgImages.map((img) => {
+        return gsap.to(img, {
           xPercent: 15,
           ease: "none",
           scrollTrigger: {
@@ -120,13 +150,13 @@ const Facilities = () => {
       });
 
       return () => {
-        tween.kill();
-        ScrollTrigger.getAll().forEach(t => t.kill());
+        parallaxTweens.forEach(t => t.kill());
       };
     });
 
     return () => {
       mm.revert();
+      ctx.revert();
     };
   }, []);
 
@@ -135,18 +165,13 @@ const Facilities = () => {
       <div className={styles.container}>
         
         {/* HEADER */}
-        <motion.div 
-          className={styles.sectionHeader}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          variants={headerVariants}
-        >
+        <div className={styles.sectionHeader}>
           <div className={styles.goldLabel}>Premium Facilities</div>
           <h2 className={styles.mainTitle}>Everything You Need To Become Your Best.</h2>
           <p className={styles.headerDescription}>
             Explore our meticulously curated zones designed to provide a comprehensive, elite fitness experience.
           </p>
-        </motion.div>
+        </div>
 
         {/* HORIZONTAL SCROLL WRAPPER */}
         <div className={styles.scrollWrapper} ref={wrapperRef}>
@@ -163,15 +188,25 @@ const Facilities = () => {
 
                 {/* Content Overlay */}
                 <div className={styles.contentContainer}>
-                  <h3 className={styles.facilityName}>{facility.name}</h3>
+                  <h3 className={styles.facilityName}>
+                    {facility.name.split(' ').map((word, index) => {
+                       if (['Strength', 'Functional', 'Cardio', 'Recovery'].includes(word)) {
+                         return <span key={index} style={{ color: 'var(--color-primary)' }}>{word} </span>;
+                       }
+                       return word + ' ';
+                    })}
+                  </h3>
                   <div className={styles.goldenDivider} />
                   <p className={styles.facilityDescription}>{facility.description}</p>
                   
                   <ul className={styles.featureList}>
                     {facility.features.map((feature, idx) => (
                       <li key={idx} className={styles.featureItem}>
-                        <span className={styles.featureIcon}>✦</span>
-                        {feature}
+                        <div className={styles.featureLeft}>
+                          <span className={styles.featureIcon}>✦</span>
+                          {feature}
+                        </div>
+                        <span className={styles.featureArrow}>→</span>
                       </li>
                     ))}
                   </ul>

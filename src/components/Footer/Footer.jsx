@@ -86,8 +86,20 @@ const Footer = () => {
     }
   };
 
+  const scrollToSection = (e, targetId) => {
+    e.preventDefault();
+    if (targetId === '#') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    const element = document.querySelector(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <footer className={styles.footerSection} ref={footerRef}>
+    <footer className={styles.footerSection} ref={footerRef} id="contact">
       <div className={styles.topGradient}></div>
       {isInView && <Particles />}
       
@@ -127,11 +139,11 @@ const Footer = () => {
           <motion.div className={styles.linksSection} variants={itemVariants}>
             <h4 className={styles.sectionTitle}>Quick Links</h4>
             <ul className={styles.linksList}>
-              <li className={styles.linkItem}><a href="#">Home</a></li>
-              <li className={styles.linkItem}><a href="#about">About</a></li>
-              <li className={styles.linkItem}><a href="#facilities">Programs</a></li>
-              <li className={styles.linkItem}><a href="#membership">Membership</a></li>
-              <li className={styles.linkItem}><a href="#contact">Contact</a></li>
+              <li className={styles.linkItem}><a href="#" onClick={(e) => scrollToSection(e, '#')}>Home</a></li>
+              <li className={styles.linkItem}><a href="#about" onClick={(e) => scrollToSection(e, '#about')}>About</a></li>
+              <li className={styles.linkItem}><a href="#facilities" onClick={(e) => scrollToSection(e, '#facilities')}>Programs</a></li>
+              <li className={styles.linkItem}><a href="#membership" onClick={(e) => scrollToSection(e, '#membership')}>Membership</a></li>
+              <li className={styles.linkItem}><a href="#contact" onClick={(e) => scrollToSection(e, '#contact')}>Contact</a></li>
             </ul>
           </motion.div>
 
@@ -141,20 +153,21 @@ const Footer = () => {
             <ul className={styles.contactList}>
               <li className={styles.contactItem}>
                 <Phone size={18} className={styles.contactIcon} />
-                +1 (555) 123-4567
+                +91 97518 08071
               </li>
               <li className={styles.contactItem}>
                 <Mail size={18} className={styles.contactIcon} />
-                elite@titangym.com
+                contact@hitechgym.com
               </li>
               <li className={styles.contactItem}>
                 <MapPin size={18} className={styles.contactIcon} />
-                123 Luxury Avenue,<br />Beverly Hills, CA 90210
+                Nethaji Rd, Engineers Colony,<br />Raja Nagar, Melapalayam,<br />Tirunelveli, Tamil Nadu 627005
               </li>
             </ul>
             <div className={styles.workingHours}>
               <span>Open Daily</span>
-              6:00 AM – 10:00 PM
+              6:00 AM – 10:00 AM<br />
+              5:00 PM – 9:00 PM
             </div>
           </motion.div>
 
@@ -187,7 +200,7 @@ const Footer = () => {
             animate={isInView ? "visible" : "hidden"}
           >
             <div className={styles.copyright}>
-              © 2026 Titan Gym. All Rights Reserved.
+              © 2026 Hi-Tech Gym. All Rights Reserved.
             </div>
             <div className={styles.legalLinks}>
               <a href="#">Privacy Policy</a>
