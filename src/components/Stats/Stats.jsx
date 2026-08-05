@@ -33,10 +33,10 @@ const Stats = () => {
   const isInView = useInView(ref, { once: true, margin: '-10%' });
 
   const statsData = [
-    { value: 500, suffix: '+', label: 'HAPPY MEMBERS' },
-    { value: 12, suffix: '', label: 'PROFESSIONAL TRAINERS' },
+    { value: 100, suffix: '+', label: 'HAPPY MEMBERS' },
+    { value: 100, suffix: '%', label: 'FRIENDLY ENVIRONMENT' },
     { value: 98, suffix: '%', label: 'CLIENT SATISFACTION' },
-    { value: 15, suffix: '+', label: 'YEARS EXPERIENCE' }
+    { value: 10, suffix: '+', label: 'YEARS EXPERIENCE' }
   ];
 
   const containerVariants = {

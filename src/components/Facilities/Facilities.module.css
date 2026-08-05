@@ -61,6 +61,9 @@
   gap: 4rem; 
   width: max-content; 
   padding-right: 5vw; 
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 /* INDIVIDUAL FACILITY CARD */
@@ -76,6 +79,7 @@
   display: flex;
   align-items: center;
   flex-shrink: 0;
+  will-change: transform;
 }
 
 /* IMAGE CONTAINER */
@@ -96,6 +100,8 @@
   left: -15%;
   top: 0;
   transition: transform 0.5s ease;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .facilityCard:hover .bgImage {
@@ -169,34 +175,70 @@
 
 .featureItem {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50px;
+  padding: 0.8rem 1.5rem;
+  color: #FFFFFF;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.featureItem:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(212, 175, 55, 0.4);
+}
+
+.featureLeft {
+  display: flex;
   align-items: center;
   gap: 1rem;
-  color: #FFFFFF;
-  font-size: 1rem;
-  font-weight: 500;
 }
 
 .featureIcon {
   color: var(--color-primary);
   font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  background: rgba(212, 175, 55, 0.1);
+}
+
+.featureArrow {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 1.2rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.featureItem:hover .featureArrow {
+  color: var(--color-primary);
+  transform: translateX(4px);
 }
 
 .exploreBtn {
-  background-color: var(--color-primary);
+  background: linear-gradient(90deg, #D4AF37 0%, #FFDF73 100%);
   color: #0A0A0A;
   border: none;
-  padding: 1rem 2rem;
-  font-size: 0.95rem;
-  font-weight: 700;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 2px;
-  border-radius: 6px;
+  border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease;
   align-self: flex-start;
   display: flex;
   align-items: center;
   gap: 0.8rem;
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
 }
 
 .exploreBtn::after {
@@ -206,8 +248,8 @@
 }
 
 .exploreBtn:hover {
-  background-color: #FFFFFF;
-  box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+  background: #FFFFFF;
+  box-shadow: 0 15px 40px rgba(212, 175, 55, 0.6);
 }
 
 .exploreBtn:hover::after {
@@ -217,47 +259,54 @@
 /* RESPONSIVE */
 @media (max-width: 991px) {
   .scrollWrapper {
-    display: block; 
-    padding: 0 2rem;
+    padding: 0;
   }
   .horizontalTrack {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    width: 100%;
+    gap: 0;
     padding-right: 0;
   }
   .facilityCard {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    min-height: 500px;
-    display: block;
+    width: 100vw !important;
+    max-width: none;
+    height: 100vh !important;
+    min-height: 100vh;
+    max-height: none;
+    border-radius: 0 !important;
+    margin: 0 !important;
   }
-  .overlay {
-    background: rgba(0, 0, 0, 0.4);
+  .bgImage {
+    width: 100% !important;
+    left: 0 !important;
+    transform: none !important;
   }
   .contentContainer {
-    position: relative;
-    left: 0;
-    top: 0;
-    transform: none;
-    width: 100%;
-    max-width: 100%;
-    min-width: 100%;
-    padding: 3rem 2rem;
-    background: linear-gradient(180deg, rgba(10, 10, 10, 0) 0%, rgba(10, 10, 10, 0.95) 100%);
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-    margin-top: 150px;
+    position: absolute !important;
+    top: auto !important;
+    bottom: 2rem !important;
+    left: 5% !important;
+    transform: none !important;
+    width: 90% !important;
+    min-width: 0;
+    max-width: none;
+    padding: 2rem 1.5rem !important;
+    border-radius: 25px !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    background: linear-gradient(135deg, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.85) 100%) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3) !important;
+    max-height: 80vh !important;
+    overflow-y: auto !important;
   }
 }
 
 @media (max-width: 768px) {
   .facilityName {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  .facilityDescription {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
   }
 }

@@ -3,7 +3,6 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './About.module.css';
 
-// Importing the generated images from assets
 import img1 from '../../assets/gym_workout_1.png';
 import img2 from '../../assets/gym_workout_2.png';
 import img3 from '../../assets/gym_workout_3.png';
@@ -11,97 +10,90 @@ import img3 from '../../assets/gym_workout_3.png';
 gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
-  const containerRef = useRef(null);
+  const sectionRef = useRef(null);
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
-      // Create a master timeline for this section
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: containerRef.current,
+          trigger: sectionRef.current,
           start: 'top 80%',
-          once: true, // Animation should happen only once
+          once: true,
         }
       });
 
-      // TEXT ANIMATION
-      // Small title
+      // TEXT ANIMATIONS (Slides from RIGHT since it's on the right side)
       tl.from(`.${styles.goldenLabel}`, {
-        x: -50,
         opacity: 0,
+        x: 50,
         duration: 0.8,
-        ease: 'power4.out'
+        ease: 'power4.out',
+        clearProps: 'all'
       }, 0);
 
-      // Main Heading
       tl.from(`.${styles.sectionTitle}`, {
-        x: -50,
         opacity: 0,
+        x: 50,
         duration: 0.8,
-        ease: 'power4.out'
-      }, 0.2); // Slight delay 0.2s
+        ease: 'power4.out',
+        clearProps: 'all'
+      }, 0.2);
 
-      // Paragraph
       tl.from(`.${styles.sectionDescription}`, {
-        x: -50,
         opacity: 0,
+        x: 50,
         duration: 0.8,
-        ease: 'power4.out'
-      }, 0.4); // Delay 0.4s
-
-      // List Items (can stagger from left)
-      tl.from(`.${styles.featureRow}`, {
-        x: -50,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: 'power4.out'
+        ease: 'power4.out',
+        clearProps: 'all'
       }, 0.4);
 
-      // Buttons (Fade Up, Small Scale, Delay 0.6s)
+      tl.from(`.${styles.featureRow}`, {
+        opacity: 0,
+        x: 50,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: 'power4.out',
+        clearProps: 'all'
+      }, 0.4);
+
+      // BUTTON ANIMATION (Fade Up, Small Scale)
       tl.from(`.${styles.discoverButton}`, {
+        opacity: 0,
         y: 20,
         scale: 0.9,
-        opacity: 0,
         duration: 0.8,
-        ease: 'power4.out'
+        ease: 'power4.out',
+        clearProps: 'all'
       }, 0.6);
 
-      // IMAGE ANIMATION
-      // Slide from RIGHT, Scale 1.08 -> 1, Opacity 0 -> 1, Duration 1 second, Ease power4.out
+      // IMAGE ANIMATIONS (Slide from LEFT since they are on the left side)
       tl.from(`.${styles.collageImage}`, {
-        x: 50,
-        scale: 1.08,
         opacity: 0,
+        x: -50,
+        scale: 1.08,
         duration: 1,
         stagger: 0.15,
-        ease: 'power4.out'
+        ease: 'power4.out',
+        clearProps: 'all'
       }, 0);
 
-      // Floating border (Fade in then float)
-      tl.from(`.${styles.goldBorder}`, {
-        opacity: 0,
-        scale: 0.9,
-        duration: 1.5,
-        ease: 'power4.out'
-      }, 0);
-
-      gsap.to(`.${styles.goldBorder} > div`, {
+      // GOLD BORDER (Floating animation loop)
+      gsap.to(`.${styles.goldBorder}`, {
         y: -15,
-        rotation: -1,
+        rotate: 1,
         duration: 3,
         yoyo: true,
         repeat: -1,
-        ease: 'sine.inOut'
+        ease: "sine.inOut"
       });
 
-    }, containerRef); // Scope to container
+    }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <section id="about" className={styles.aboutSection} ref={containerRef}>
+    <section id="about" className={styles.aboutSection} ref={sectionRef}>
       <div className={styles.container}>
         
         {/* LEFT SIDE: Image Collage */}

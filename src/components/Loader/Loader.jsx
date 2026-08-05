@@ -7,16 +7,21 @@ import introAudio from "../../assets/audio/Yeah Buddy Light Weight Baby Ronnie C
 const Loader = ({ setLoading }) => {
   const [progress, setProgress] = useState(0);
   const [isFinishing, setIsFinishing] = useState(false);
+  const [showOverlay, setShowOverlay] = useState(false);
+  
   const audioRef = useRef(null);
   const isPlayingRef = useRef(false);
 
   useEffect(() => {
-    let fallbackInterval;
     let isMounted = true;
     
-    audioRef.current = new Audio(introAudio);
-    audioRef.current.preload = "auto";
+    // 1. Initialize HTMLAudioElement
+    const audio = new Audio(introAudio);
+    audio.preload = "auto";
+    audio.volume = 1.0;
+    audioRef.current = audio;
     
+    // Function to handle the transition to the Hero section
     const triggerFinish = () => {
       setIsFinishing(true);
       setTimeout(() => {
@@ -24,75 +29,63 @@ const Loader = ({ setLoading }) => {
       }, 1100); 
     };
 
-    const attemptPlay = async () => {
-      if (isPlayingRef.current) return;
-      try {
-        await audioRef.current.play();
-        isPlayingRef.current = true;
-        
-        // If it was using fallback, stop fallback and use audio duration
-        if (fallbackInterval) {
-          clearInterval(fallbackInterval);
-        }
-
-        audioRef.current.ontimeupdate = () => {
-          if (!isMounted) return;
-          const current = audioRef.current.currentTime;
-          const duration = audioRef.current.duration;
-          if (duration > 0) {
-            setProgress((current / duration) * 100);
-          }
-        };
-        
-        audioRef.current.onended = () => {
-          if (!isMounted) return;
-          setProgress(100);
-          triggerFinish();
-        };
-      } catch (err) {
-        console.warn("Autoplay blocked by browser policy.");
-        if (!fallbackInterval) {
-          let simulatedProgress = 0;
-          fallbackInterval = setInterval(() => {
-            simulatedProgress += 2;
-            if (!isMounted) return;
-            
-            if (simulatedProgress >= 100) {
-              clearInterval(fallbackInterval);
-              setProgress(100);
-              triggerFinish();
-            } else {
-              setProgress(simulatedProgress);
-            }
-          }, 80);
-        }
-      }
-    };
-
-    attemptPlay();
-
-    // Global listener to force play if user clicks ANYWHERE
-    const forcePlayOnInteraction = () => {
-      if (!isPlayingRef.current) {
-        attemptPlay();
+    // Attach listeners for progress sync and completion
+    audio.ontimeupdate = () => {
+      if (!isMounted) return;
+      const current = audio.currentTime;
+      const duration = audio.duration;
+      // 5. Synchronize the loader progress with the audio
+      if (duration > 0) {
+        setProgress((current / duration) * 100);
       }
     };
     
-    window.addEventListener('click', forcePlayOnInteraction);
-    window.addEventListener('keydown', forcePlayOnInteraction);
+    audio.onended = () => {
+      if (!isMounted) return;
+      setProgress(100);
+      // 5. Reveal the Hero section after the audio ends
+      triggerFinish();
+    };
+
+    // 4. Handle autoplay restrictions gracefully
+    const attemptAutoplay = async () => {
+      try {
+        await audio.play();
+        isPlayingRef.current = true;
+      } catch (err) {
+        // 6. If autoplay is blocked: Do NOT throw errors, show overlay
+        console.warn("Autoplay blocked by browser policy. Awaiting user interaction.");
+        if (isMounted) {
+          setShowOverlay(true);
+        }
+      }
+    };
+
+    // 1. Attempt to play audio when Loader starts
+    attemptAutoplay();
 
     return () => {
+      // 8. Stop and clean up the audio on component unmount
       isMounted = false;
-      window.removeEventListener('click', forcePlayOnInteraction);
-      window.removeEventListener('keydown', forcePlayOnInteraction);
-      if (fallbackInterval) clearInterval(fallbackInterval);
       if (audioRef.current) {
         audioRef.current.pause();
-        audioRef.current.currentTime = 0;
+        audioRef.current.src = ""; // Clear source to free memory
         audioRef.current = null;
       }
     };
   }, [setLoading]);
+
+  // 6. After the first click: Play intro audio, hide overlay, continue animation
+  const handleOverlayClick = () => {
+    if (audioRef.current && !isPlayingRef.current) {
+      audioRef.current.play().then(() => {
+        isPlayingRef.current = true;
+        setShowOverlay(false);
+      }).catch((err) => {
+        console.warn("Manual play failed:", err);
+      });
+    }
+  };
 
   return (
     <AnimatePresence>
@@ -101,6 +94,24 @@ const Loader = ({ setLoading }) => {
         initial={{ opacity: 1 }}
         exit={{ opacity: 0, transition: { duration: 1, ease: 'easeInOut' } }}
       >
+        {/* INTERACTION OVERLAY */}
+        <AnimatePresence>
+          {showOverlay && (
+            <motion.div 
+              className={styles.interactionOverlay}
+              onClick={handleOverlayClick}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <div className={styles.overlayText}>
+                Tap anywhere to begin your workout.
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* EXISTING ANIMATIONS */}
         <motion.div 
           className={styles.logo}
           animate={isFinishing ? { scale: 1.15, opacity: 0 } : { scale: 1, opacity: 1 }}

@@ -25,27 +25,55 @@ const Navbar = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
+  const scrollToSection = (e, targetId) => {
+    e.preventDefault();
+    if (mobileMenuOpen) setMobileMenuOpen(false);
+    
+    // If it's home/top
+    if (targetId === '#') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    
+    const element = document.querySelector(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <header className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={styles.logo}>
-        <img src={logoImg} alt="Gym Logo" style={{ height: '90px', width: 'auto', objectFit: 'contain', transform: 'scale(1.2)', transformOrigin: 'left center' }} />
+        <img src={logoImg} alt="Gym Logo" className={styles.logoImg} />
       </div>
 
       <nav className={styles.navLinks}>
-        <Link to="/" className={styles.navLink}>Home</Link>
-        <Link to="/#about" className={styles.navLink}>About</Link>
-        <Link to="/#plans" className={styles.navLink}>Membership</Link>
-        <Link to="/#trainers" className={styles.navLink}>Trainers</Link>
-        <Link to="/#facilities" className={styles.navLink}>Facilities</Link>
+        <a href="#" onClick={(e) => scrollToSection(e, '#')} className={styles.navLink}>Home</a>
+        <a href="#about" onClick={(e) => scrollToSection(e, '#about')} className={styles.navLink}>About</a>
+        <a href="#facilities" onClick={(e) => scrollToSection(e, '#facilities')} className={styles.navLink}>Programs</a>
+        <a href="#membership" onClick={(e) => scrollToSection(e, '#membership')} className={styles.navLink}>Membership</a>
+        <a href="#contact" onClick={(e) => scrollToSection(e, '#contact')} className={styles.navLink}>Contact</a>
       </nav>
 
-      <button className={styles.ctaBtn}>
+      <button className={styles.ctaBtn} onClick={(e) => scrollToSection(e, '#membership')}>
         Join Now
       </button>
 
       <button className={styles.mobileMenuBtn} onClick={toggleMobileMenu}>
         {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
       </button>
+
+      {/* MOBILE MENU */}
+      <div className={`${styles.mobileMenu} ${mobileMenuOpen ? styles.mobileMenuOpen : ''}`}>
+        <nav className={styles.mobileNavLinks}>
+          <a href="#" className={styles.mobileNavLink} onClick={(e) => scrollToSection(e, '#')}>Home</a>
+          <a href="#about" className={styles.mobileNavLink} onClick={(e) => scrollToSection(e, '#about')}>About</a>
+          <a href="#facilities" className={styles.mobileNavLink} onClick={(e) => scrollToSection(e, '#facilities')}>Programs</a>
+          <a href="#membership" className={styles.mobileNavLink} onClick={(e) => scrollToSection(e, '#membership')}>Membership</a>
+          <a href="#contact" className={styles.mobileNavLink} onClick={(e) => scrollToSection(e, '#contact')}>Contact</a>
+          <button className={styles.mobileCtaBtn} onClick={(e) => scrollToSection(e, '#membership')}>Join Now</button>
+        </nav>
+      </div>
     </header>
   );
 };

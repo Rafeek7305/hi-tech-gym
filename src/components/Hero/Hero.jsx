@@ -11,6 +11,8 @@ const phrases = [
 
 const Hero = () => {
   const containerRef = useRef(null);
+  const backgroundWrapperRef = useRef(null);
+  const headingWrapperRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const { scrollYProgress } = useScroll({
@@ -44,19 +46,11 @@ const Hero = () => {
       // Master Reveal Timeline
       
       // Background fade in
-      tl.from(`.${styles.backgroundWrapper}`, {
+      tl.from(backgroundWrapperRef.current, {
         opacity: 0,
         duration: 1.5,
         ease: "power2.inOut"
       });
-
-      // Navbar fades down (selecting the global header element)
-      tl.from("header", {
-        y: -50,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out"
-      }, "-=0.5");
 
       // Heading reveals line-by-line
       tl.from(`.${styles.badge}`, {
@@ -66,7 +60,7 @@ const Hero = () => {
         ease: "power3.out"
       }, "-=0.5");
 
-      tl.from(`.${styles.headingWrapper}`, {
+      tl.from(headingWrapperRef.current, {
         opacity: 0,
         y: 30,
         duration: 1,
@@ -115,7 +109,7 @@ const Hero = () => {
   return (
     <section className={styles.hero} ref={containerRef}>
       <motion.div 
-        className={styles.backgroundWrapper} 
+        ref={backgroundWrapperRef} 
         style={{ y: yBg, position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}
       >
         <div className={styles.background} style={{ width: '100%', height: '100%', transformOrigin: 'center center' }} />
@@ -133,7 +127,7 @@ const Hero = () => {
             EST. 2026
           </div>
 
-          <div className={styles.headingWrapper}>
+          <div ref={headingWrapperRef}>
             <AnimatePresence mode="wait">
               <motion.h1 
                 key={currentIndex}
@@ -151,13 +145,13 @@ const Hero = () => {
           <div className={styles.descriptionWrapper}>
             <div className={styles.verticalLine} />
             <p className={styles.description}>
-              Experience luxury fitness at its peak. State-of-the-art equipment, elite personal training, and an exclusive atmosphere designed for those who demand the best.
+              Join the best gym in town. We offer top-quality equipment, expert personal trainers, and a clean, welcoming space for everyone to achieve their fitness goals.
             </p>
           </div>
           
           <div className={styles.ctaGroup}>
-            <button className={styles.primaryBtn}>Start Free Trial</button>
-            <button className={styles.secondaryBtn}>View Plans</button>
+            <button className={styles.primaryBtn} onClick={() => document.getElementById('membership').scrollIntoView({ behavior: 'smooth' })}>Join Now</button>
+            <button className={styles.secondaryBtn} onClick={() => document.getElementById('facilities').scrollIntoView({ behavior: 'smooth' })}>View Facilities</button>
           </div>
         </motion.div>
 
@@ -168,16 +162,16 @@ const Hero = () => {
         >
           <div className={styles.statsGlass}>
             <div className={styles.statItem}>
-              <span className={styles.statNumber}>500+</span>
+              <span className={styles.statNumber}>100+</span>
               <span className={styles.statLabel}>Members</span>
             </div>
             <div className={styles.statItem}>
-              <span className={styles.statNumber}>12</span>
-              <span className={styles.statLabel}>Pro Trainers</span>
+              <span className={styles.statNumber} style={{ fontSize: '2rem' }}>A/C & Non A/C</span>
+              <span className={styles.statLabel}>Facilities</span>
             </div>
             <div className={styles.statItem}>
-              <span className={styles.statNumber}>6AM-10PM</span>
-              <span className={styles.statLabel}>Open Daily</span>
+              <span className={styles.statNumber} style={{ fontSize: '2rem' }}>6AM-10AM</span>
+              <span className={styles.statLabel}>& 5PM-9PM Daily</span>
             </div>
           </div>
         </motion.div>
