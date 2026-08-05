@@ -1,0 +1,41 @@
+.customCursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--color-primary);
+  pointer-events: none;
+  z-index: var(--z-cursor);
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, background-color 0.3s;
+  mix-blend-mode: difference;
+}
+
+.customCursorDot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  pointer-events: none;
+  z-index: var(--z-cursor);
+  transform: translate(-50%, -50%);
+}
+
+/* Hover state */
+.customCursor.hovered {
+  width: 64px;
+  height: 64px;
+  background-color: rgba(212, 175, 55, 0.1);
+}
+
+/* Hide on mobile and touch devices */
+@media (hover: none) and (pointer: coarse), (max-width: 768px) {
+  .customCursor, .customCursorDot {
+    display: none;
+  }
+}

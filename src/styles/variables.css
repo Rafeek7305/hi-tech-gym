@@ -1,0 +1,43 @@
+/* ==========================================================================
+   CSS VARIABLES - PREMIUM BLACK + GOLD LUXURY THEME
+   ========================================================================== */
+
+   :root {
+    /* Colors */
+    --color-bg-primary: #0A0A0A;
+    --color-bg-secondary: #151515; /* For Cards */
+    --color-primary: #D4AF37; /* Luxury Gold */
+    --color-secondary: #F5F5F5;
+    --color-text-primary: #FFFFFF;
+    --color-text-muted: #A8A8A8;
+    --color-border: #262626;
+  
+    /* Border Radius */
+    --border-radius: 18px;
+    --border-radius-sm: 8px;
+    --border-radius-full: 9999px;
+  
+    /* Layout */
+    --container-width: 1280px;
+    --padding-x: 2rem;
+    --nav-height: 80px;
+  
+    /* Typography */
+    --font-heading: 'Ysabeau Office', sans-serif;
+    --font-body: 'Ysabeau Office', sans-serif;
+  
+    /* Transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    --transition-fast: all 0.2s ease-in-out;
+  
+    /* Z-Index */
+    --z-negative: -1;
+    --z-normal: 1;
+    --z-dropdown: 1000;
+    --z-sticky: 1020;
+    --z-fixed: 1030;
+    --z-modal-backdrop: 1040;
+    --z-modal: 1050;
+    --z-cursor: 9999;
+  }
+  
