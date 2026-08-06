@@ -45,6 +45,7 @@ const AnimatedCounter = ({ from = 0, to, duration = 2.5, suffix = "" }) => {
 
 const SignatureTraining = () => {
   const sectionRef = useRef(null);
+  const marqueeRef = useRef(null);
 
   const cardsData = [
     {
@@ -127,7 +128,54 @@ const SignatureTraining = () => {
 
     }, sectionRef);
 
-    return () => ctx.revert();
+    // AUTO-SCROLL LOGIC FOR MARQUEE
+    const marquee = marqueeRef.current;
+    let reqId;
+    let isPaused = false;
+    let scrollSpeed = 1; // Pixels per frame
+
+    const scrollLoop = () => {
+      if (marquee && !isPaused) {
+        marquee.scrollLeft += scrollSpeed;
+        
+        const firstCard = marquee.querySelector(`.${styles.card}`);
+        const track = marquee.querySelector(`.${styles.marqueeTrack}`);
+        
+        if (firstCard && track) {
+          const cardWidth = firstCard.offsetWidth;
+          const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
+          const setWidth = (cardWidth + gap) * 4; // 4 is cardsData.length
+          
+          if (marquee.scrollLeft >= setWidth) {
+            marquee.scrollLeft -= setWidth;
+          }
+        }
+      }
+      reqId = requestAnimationFrame(scrollLoop);
+    };
+
+    reqId = requestAnimationFrame(scrollLoop);
+
+    const pauseScroll = () => { isPaused = true; };
+    const resumeScroll = () => { isPaused = false; };
+
+    if (marquee) {
+      marquee.addEventListener('mouseenter', pauseScroll);
+      marquee.addEventListener('mouseleave', resumeScroll);
+      marquee.addEventListener('touchstart', pauseScroll, { passive: true });
+      marquee.addEventListener('touchend', resumeScroll);
+    }
+
+    return () => {
+      ctx.revert();
+      cancelAnimationFrame(reqId);
+      if (marquee) {
+        marquee.removeEventListener('mouseenter', pauseScroll);
+        marquee.removeEventListener('mouseleave', resumeScroll);
+        marquee.removeEventListener('touchstart', pauseScroll);
+        marquee.removeEventListener('touchend', resumeScroll);
+      }
+    };
   }, []);
 
   return (
@@ -148,7 +196,7 @@ const SignatureTraining = () => {
       </div>
 
       {/* CARDS MARQUEE - Placed outside container for true full width */}
-      <div className={styles.marqueeContainer}>
+      <div className={styles.marqueeContainer} ref={marqueeRef}>
         <div className={styles.marqueeTrack}>
           {[...cardsData, ...cardsData, ...cardsData, ...cardsData].map((card, index) => (
               <div key={index} className={styles.card}>

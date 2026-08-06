@@ -49,29 +49,25 @@
   line-height: 1.8;
 }
 
-/* CARDS MARQUEE */
 .marqueeContainer {
   width: 100%;
-  overflow: hidden;
+  overflow-x: auto;
   margin-bottom: 8rem;
   padding: 2rem 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
 }
+
+.marqueeContainer::-webkit-scrollbar {
+  display: none;
+}
+
 
 .marqueeTrack {
   display: flex;
   gap: 2.5rem;
   width: max-content;
-  animation: scrollMarquee 25s linear infinite;
-}
-
-.marqueeTrack:hover {
-  animation-play-state: paused;
-}
-
-@keyframes scrollMarquee {
-  0% { transform: translateX(0); }
-  /* Shifts exactly 1 set of 4 cards (4 * 450px) + 4 gaps (4 * 2.5rem) */
-  100% { transform: translateX(calc(-1 * (4 * 450px + 4 * 2.5rem))); }
 }
 
 .card {
