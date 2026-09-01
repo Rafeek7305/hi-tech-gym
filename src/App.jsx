@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 import About from './components/About/About';
@@ -13,6 +13,17 @@ import Footer from './components/Footer/Footer';
 import Loader from './components/Loader/Loader';
 import Cursor from './components/Cursor/Cursor';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import AboutPage from './pages/About/AboutPage';
+import ProgramsPage from './pages/Programs/ProgramsPage';
+import ContactPage from './pages/Contact/ContactPage';
+
+const ScrollToTopOnRoute = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
 
 const Home = () => (
   <>
@@ -59,12 +70,16 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTopOnRoute />
       {loading && <Loader setLoading={setLoading} />}
       <Cursor />
       <Navbar />
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/programs" element={<ProgramsPage />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
       <Footer />
     </Router>
