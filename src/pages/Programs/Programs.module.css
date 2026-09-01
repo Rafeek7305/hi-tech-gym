@@ -1,0 +1,1656 @@
+/* ==========================================================================
+   PROGRAMS PAGE STYLES - HI-TECH GYM LUXURY THEME
+   ========================================================================== */
+
+.programsPageWrapper {
+  width: 100%;
+  background-color: var(--color-bg-primary, #0A0A0A);
+  color: var(--color-text-primary, #FFFFFF);
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-width, 1280px);
+  margin: 0 auto;
+  padding: 0 var(--padding-x, 2rem);
+}
+
+.section {
+  padding: 6rem 0;
+  position: relative;
+}
+
+.darkBgSection {
+  background-color: #0E0E0E;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Common Headers */
+.sectionCategory {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--color-primary, #D4AF37);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.sectionTitle {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+}
+
+.sectionSubtitle {
+  font-size: 1.15rem;
+  color: var(--color-text-muted, #A8A8A8);
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.centerHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.goldLine {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #D4AF37 0%, transparent 100%);
+  margin-bottom: 1.75rem;
+  border-radius: 2px;
+}
+
+.goldGradientText {
+  background: linear-gradient(135deg, #FFF7AD 0%, #D4AF37 50%, #AA820A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Buttons */
+.primaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.1rem 2.2rem;
+  background: linear-gradient(135deg, #E5C158 0%, #D4AF37 50%, #9B7B1C 100%);
+  color: #0A0A0A;
+  font-weight: 800;
+  font-size: 1.05rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.primaryBtn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
+  background: linear-gradient(135deg, #FFF7AD 0%, #E5C158 50%, #D4AF37 100%);
+}
+
+.secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.1rem 2.2rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 1.05rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.secondaryBtn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(212, 175, 55, 0.5);
+  transform: translateY(-3px);
+  color: #D4AF37;
+}
+
+/* ==========================================================================
+   1. PROGRAMS HERO
+   ========================================================================== */
+.heroSection {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7rem 0 5rem;
+  overflow: hidden;
+}
+
+.heroBgWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.heroBgImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.65) contrast(1.1);
+  transform: scale(1.03);
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(10, 10, 10, 0.4) 0%, rgba(10, 10, 10, 0.9) 85%);
+}
+
+.heroGlow {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+  filter: blur(50px);
+}
+
+.heroContainer {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: var(--container-width, 1280px);
+  margin: 0 auto;
+  padding: 0 var(--padding-x, 2rem);
+}
+
+.heroContent {
+  max-width: 800px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.heroTag {
+  display: inline-flex;
+  padding: 0.5rem 1.25rem;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  backdrop-filter: blur(8px);
+  border-radius: 999px;
+  color: #D4AF37;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+}
+
+.heroHeading {
+  font-size: 4.25rem;
+  font-weight: 900;
+  line-height: 1.1;
+  color: #FFFFFF;
+  margin-bottom: 1.5rem;
+  letter-spacing: -1px;
+}
+
+.heroSubtext {
+  font-size: 1.35rem;
+  color: #D1D1D1;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+}
+
+.heroCtaWrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.scrollIndicatorWrapper {
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.scrollIndicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.4rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.75rem;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: color 0.3s;
+}
+
+.scrollIndicator span {
+  letter-spacing: 2px;
+  margin-right: -2px;
+}
+
+.scrollIndicator:hover {
+  color: #D4AF37;
+}
+
+/* ==========================================================================
+   2. GOAL SELECTOR
+   ========================================================================== */
+.goalsGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.25rem;
+}
+
+.goalCard {
+  background: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 1.75rem 1.25rem;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.goalCard:hover,
+.goalCardActive {
+  background: rgba(212, 175, 55, 0.08);
+  border-color: #D4AF37;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.15);
+}
+
+.goalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.goalIconBox {
+  width: 46px;
+  height: 46px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #D4AF37;
+  transition: transform 0.3s;
+}
+
+.goalCard:hover .goalIconBox {
+  transform: scale(1.1);
+  background: rgba(212, 175, 55, 0.25);
+}
+
+.goalArrowBox {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s;
+}
+
+.goalCard:hover .goalArrowBox {
+  background: #D4AF37;
+  color: #0A0A0A;
+  transform: translate(2px, -2px);
+}
+
+.goalTitle {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.5px;
+}
+
+.goalDescription {
+  font-size: 0.92rem;
+  color: #A8A8A8;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.goalExploreBtn {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #D4AF37;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.goalCornerGlow {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   3. PROGRAMS OVERVIEW
+   ========================================================================== */
+.filterNotice {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem 1.25rem;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 999px;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #D4AF37;
+}
+
+.clearFilterBtn {
+  background: #D4AF37;
+  color: #0A0A0A;
+  border: none;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.programsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.programCard {
+  background: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.programCard:hover {
+  transform: translateY(-8px);
+  border-color: rgba(212, 175, 55, 0.4);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 175, 55, 0.12);
+}
+
+.programImageContainer {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.programImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.programCard:hover .programImage {
+  transform: scale(1.06);
+}
+
+.programOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, transparent 30%, #141414 100%);
+}
+
+.programCategoryBadge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.85rem;
+  background: rgba(10, 10, 10, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 999px;
+  color: #D4AF37;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.programDifficultyTag {
+  position: absolute;
+  bottom: 0.8rem;
+  right: 1rem;
+  font-size: 0.75rem;
+  color: #D1D1D1;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  backdrop-filter: blur(6px);
+}
+
+.programCardBody {
+  padding: 1.5rem 1.75rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.programTitle {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 0.6rem;
+}
+
+.programDescription {
+  font-size: 0.98rem;
+  color: #A8A8A8;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.programFeaturesList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.programFeatureTag {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  color: #D1D1D1;
+}
+
+.goldCheck {
+  color: #D4AF37;
+  flex-shrink: 0;
+}
+
+.programCardFooter {
+  margin-top: auto;
+}
+
+.viewProgramBtn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.25rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 12px;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.viewProgramBtn:hover {
+  background: rgba(212, 175, 55, 0.15);
+  border-color: #D4AF37;
+  color: #D4AF37;
+}
+
+.programBorderGlow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 22px;
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   4. FEATURED PROGRAM
+   ========================================================================== */
+.featuredLayout {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.featuredVisualColumn {
+  position: relative;
+}
+
+.featuredImageWrapper {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+}
+
+.featuredImage {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  display: block;
+}
+
+.featuredImageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, transparent 40%, rgba(10, 10, 10, 0.9) 100%);
+}
+
+.featuredCornerBadge {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(10, 10, 10, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 999px;
+  color: #D4AF37;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  backdrop-filter: blur(10px);
+}
+
+.featuredFrameBorder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 24px;
+  pointer-events: none;
+}
+
+.featuredTitle {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  margin-bottom: 1rem;
+}
+
+.featuredSubtext {
+  font-size: 1.25rem;
+  color: #D1D1D1;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.focusBlock {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 18px;
+  padding: 1.75rem;
+  margin-bottom: 2.25rem;
+}
+
+.focusHeaderTitle {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #D4AF37;
+  letter-spacing: 1px;
+  margin-bottom: 1.25rem;
+}
+
+.focusGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.focusItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.focusCheckCircle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid #D4AF37;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #D4AF37;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.focusItemTitle {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 0.2rem;
+}
+
+.focusItemText {
+  font-size: 0.85rem;
+  color: #A8A8A8;
+}
+
+/* ==========================================================================
+   5. TRAINING PROCESS (TIMELINE)
+   ========================================================================== */
+.timelineWrapper {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timelineLine {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.4) 15%, rgba(212, 175, 55, 0.4) 85%, transparent 100%);
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+.timelineGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.timelineStepCard {
+  background: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 2.2rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.timelineStepCard:hover {
+  transform: translateY(-8px);
+  border-color: rgba(212, 175, 55, 0.5);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.15);
+}
+
+.stepHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.stepNumText {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: rgba(212, 175, 55, 0.25);
+}
+
+.stepIconBox {
+  width: 48px;
+  height: 48px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #D4AF37;
+}
+
+.stepTitle {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 0.6rem;
+  letter-spacing: 1px;
+}
+
+.stepDescription {
+  font-size: 0.98rem;
+  color: #A8A8A8;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   6. BEGINNER FRIENDLY SECTION
+   ========================================================================== */
+.beginnerGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.beginnerTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 999px;
+  color: #D4AF37;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 1.25rem;
+}
+
+.beginnerTitle {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+}
+
+.beginnerTextBody {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2.25rem;
+}
+
+.beginnerHighlight {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.beginnerParagraph {
+  font-size: 1.1rem;
+  color: #D1D1D1;
+  line-height: 1.7;
+}
+
+.beginnerQuote {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #D4AF37;
+  font-style: italic;
+  padding-left: 1.25rem;
+  border-left: 3px solid #D4AF37;
+}
+
+.beginnerImageWrapper {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.beginnerImage {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  display: block;
+}
+
+.beginnerImageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, transparent 50%, rgba(10, 10, 10, 0.85) 100%);
+}
+
+.beginnerBadge {
+  position: absolute;
+  bottom: 1.75rem;
+  left: 1.75rem;
+  background: rgba(15, 15, 15, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  padding: 0.6rem 1.25rem;
+  border-radius: 999px;
+  color: #D4AF37;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+/* ==========================================================================
+   7. PERSONAL TRAINING SECTION
+   ========================================================================== */
+.personalGrid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.personalImageWrapper {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+.personalImage {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+}
+
+.personalImageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, transparent 40%, rgba(10, 10, 10, 0.9) 100%);
+}
+
+.personalBadge {
+  position: absolute;
+  bottom: 1.75rem;
+  left: 1.75rem;
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  backdrop-filter: blur(10px);
+  padding: 0.6rem 1.25rem;
+  border-radius: 999px;
+  color: #D4AF37;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.personalLeadText {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 0.75rem;
+}
+
+.personalBodyText {
+  font-size: 1.1rem;
+  color: #A8A8A8;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.pillarsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 2.25rem;
+}
+
+.pillarCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.25rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.pillarIconBox {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #D4AF37;
+  flex-shrink: 0;
+}
+
+.pillarTitle {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 0.2rem;
+}
+
+.pillarDesc {
+  font-size: 0.85rem;
+  color: #A8A8A8;
+}
+
+/* ==========================================================================
+   8. PROGRAM COMPARISON TABLE
+   ========================================================================== */
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+  background: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 1.5rem;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+}
+
+.comparisonTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.comparisonTable th {
+  padding: 1.25rem 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #D4AF37;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.comparisonTable td {
+  padding: 1.25rem 1.5rem;
+  font-size: 1rem;
+  color: #D1D1D1;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.comparisonTable tr:last-child td {
+  border-bottom: none;
+}
+
+.tableProgramName {
+  font-weight: 800;
+  color: #FFFFFF !important;
+  font-size: 1.1rem !important;
+}
+
+.mobileColLabel {
+  display: none;
+}
+
+.levelTag {
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 999px;
+  color: #D4AF37;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   9. MOTIVATIONAL SECTION
+   ========================================================================== */
+.motivationSection {
+  background: radial-gradient(ellipse at center, #151515 0%, #0A0A0A 100%);
+  padding: 8rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.motivationBgGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 750px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, transparent 75%);
+  pointer-events: none;
+  filter: blur(60px);
+}
+
+.motivationWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.motivationHeadline {
+  font-size: 3.25rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.5px;
+}
+
+.motivationSubtext {
+  font-size: 1.3rem;
+  color: #D4AF37;
+  max-width: 720px;
+  line-height: 1.6;
+}
+
+.motivationDivider {
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #D4AF37 50%, transparent 100%);
+  margin: 4rem 0;
+}
+
+.motivationGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.motivationCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 20px;
+  padding: 2.25rem 1.25rem;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.motivationCard:hover {
+  background: rgba(212, 175, 55, 0.08);
+  border-color: #D4AF37;
+  transform: translateY(-5px);
+}
+
+.motivationNum {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #D4AF37;
+  letter-spacing: 2px;
+  margin-bottom: 0.75rem;
+}
+
+.motivationText {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  letter-spacing: 1px;
+}
+
+.motivationGlow {
+  position: absolute;
+  bottom: -40px;
+  right: -40px;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   10. PROGRAM FAQ
+   ========================================================================== */
+.faqWrapper {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.faqCard {
+  background: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faqCardOpen {
+  border-color: rgba(212, 175, 55, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.faqQuestionBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 1.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #FFFFFF;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+.faqQuestionLeft {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.faqIcon {
+  color: #D4AF37;
+  flex-shrink: 0;
+}
+
+.faqToggleIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #D4AF37;
+  flex-shrink: 0;
+}
+
+.faqAnswerBody {
+  padding: 0 1.75rem 1.5rem 3.5rem;
+  color: #A8A8A8;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   11. FINAL CTA
+   ========================================================================== */
+.ctaSection {
+  position: relative;
+  padding: 8rem 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+.ctaBgWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.ctaBgImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.4) contrast(1.1);
+}
+
+.ctaOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(10, 10, 10, 0.5) 0%, rgba(10, 10, 10, 0.92) 80%);
+}
+
+.ctaGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
+  pointer-events: none;
+  filter: blur(50px);
+}
+
+.ctaCardBox {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.ctaHeading {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.5px;
+}
+
+.ctaSubtext {
+  font-size: 1.3rem;
+  color: #D1D1D1;
+  line-height: 1.6;
+  margin-bottom: 2.75rem;
+}
+
+.ctaButtonsGroup {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   PROGRAM MODAL STYLES
+   ========================================================================== */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.modalContainer {
+  background: #141414;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 24px;
+  max-width: 640px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+}
+
+.modalCloseBtn {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(10, 10, 10, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s;
+}
+
+.modalCloseBtn:hover {
+  background: #D4AF37;
+  color: #0A0A0A;
+}
+
+.modalImageHeader {
+  position: relative;
+  height: 240px;
+  width: 100%;
+}
+
+.modalHeaderImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modalHeaderOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, transparent 30%, #141414 100%);
+}
+
+.modalBadgeGroup {
+  position: absolute;
+  bottom: 1rem;
+  left: 1.5rem;
+  display: flex;
+  gap: 0.6rem;
+}
+
+.modalCatBadge {
+  background: rgba(212, 175, 55, 0.2);
+  border: 1px solid #D4AF37;
+  color: #D4AF37;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.modalDiffBadge {
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #D1D1D1;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+}
+
+.modalBody {
+  padding: 1.75rem 2rem 2.25rem;
+}
+
+.modalTitle {
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  margin-bottom: 0.75rem;
+}
+
+.modalDescription {
+  font-size: 1.05rem;
+  color: #A8A8A8;
+  line-height: 1.6;
+  margin-bottom: 1.75rem;
+}
+
+.modalSectionBox {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.modalSectionHeading {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #D4AF37;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.modalHighlightsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.modalHighlightItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  color: #FFFFFF;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 1200px) {
+  .goalsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1100px) {
+  .heroHeading {
+    font-size: 3.5rem;
+  }
+
+  .programsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .timelineGrid,
+  .motivationGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .timelineLine {
+    display: none;
+  }
+
+  .motivationHeadline {
+    font-size: 2.6rem;
+  }
+
+  .ctaHeading {
+    font-size: 2.75rem;
+  }
+}
+
+@media (max-width: 850px) {
+  .section {
+    padding: 4rem 0;
+  }
+
+  .featuredLayout,
+  .beginnerGrid,
+  .personalGrid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .featuredImage,
+  .beginnerImage,
+  .personalImage {
+    height: 320px;
+  }
+
+  .heroHeading {
+    font-size: 2.35rem;
+    line-height: 1.2;
+  }
+
+  .heroSubtext {
+    font-size: 1.1rem;
+  }
+
+  .sectionTitle,
+  .featuredTitle,
+  .beginnerTitle,
+  .motivationHeadline,
+  .ctaHeading {
+    font-size: 2rem;
+    line-height: 1.25;
+  }
+
+  .goalsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .programsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroCtaWrapper,
+  .ctaButtonsGroup,
+  .beginnerCtaGroup,
+  .featuredCtaBox,
+  .personalCtaBox {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 0.85rem;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+    white-space: nowrap;
+    font-size: 0.95rem;
+    padding: 0.85rem 1.25rem;
+  }
+
+  .comparisonTable {
+    display: block;
+  }
+
+  .comparisonTable thead {
+    display: none;
+  }
+
+  .comparisonTable tbody,
+  .comparisonTable tr,
+  .comparisonTable td {
+    display: block;
+    width: 100%;
+  }
+
+  .comparisonTable tr {
+    margin-bottom: 1.25rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 16px;
+    padding: 1rem;
+  }
+
+  .comparisonTable td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 0.75rem 0;
+  }
+
+  .comparisonTable td:last-child {
+    border-bottom: none;
+  }
+
+  .mobileColLabel {
+    display: inline-block;
+    font-weight: 700;
+    color: #D4AF37;
+    margin-right: 0.5rem;
+  }
+}
+
+@media (max-width: 580px) {
+  .heroHeading {
+    font-size: 1.85rem;
+    line-height: 1.25;
+  }
+
+  .heroTag {
+    font-size: 0.72rem;
+    padding: 0.35rem 0.85rem;
+  }
+
+  .heroSubtext {
+    font-size: 0.98rem;
+  }
+
+  .goalsGrid,
+  .timelineGrid,
+  .motivationGrid,
+  .focusGrid,
+  .pillarsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .sectionTitle,
+  .featuredTitle,
+  .beginnerTitle,
+  .motivationHeadline,
+  .ctaHeading {
+    font-size: 1.6rem;
+    line-height: 1.25;
+  }
+
+  .beginnerHighlight {
+    font-size: 1.15rem;
+  }
+
+  .beginnerParagraph {
+    font-size: 0.98rem;
+  }
+
+  .beginnerQuote {
+    font-size: 1rem;
+  }
+
+  .faqAnswerBody {
+    padding-left: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroHeading {
+    font-size: 1.6rem;
+  }
+
+  .sectionTitle,
+  .featuredTitle,
+  .beginnerTitle,
+  .motivationHeadline,
+  .ctaHeading {
+    font-size: 1.4rem;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    font-size: 0.9rem;
+    padding: 0.8rem 1rem;
+    max-width: 100%;
+  }
+}
