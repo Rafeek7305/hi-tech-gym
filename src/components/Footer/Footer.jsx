@@ -1,25 +1,26 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { MessageCircle, MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { MessageCircle, MapPin, Phone, Mail } from 'lucide-react';
 import styles from './Footer.module.css';
 import logoImg from '../../assets/logo3.png';
 
 const InstagramIcon = ({ size = 24 }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg>
 );
 
 const FacebookIcon = ({ size = 24 }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>
 );
 
 const YoutubeIcon = ({ size = 24 }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" /><path d="m10 15 5-3-5-3z" /></svg>
 );
 
 // Random Particle Generator Component
 const Particles = () => {
   const particles = Array.from({ length: 20 });
-  
+
   return (
     <div className={styles.particlesContainer}>
       {particles.map((_, i) => {
@@ -27,7 +28,7 @@ const Particles = () => {
         const left = Math.random() * 100;
         const duration = Math.random() * 10 + 10;
         const delay = Math.random() * 5;
-        
+
         return (
           <motion.div
             key={i}
@@ -59,6 +60,8 @@ const Particles = () => {
 const Footer = () => {
   const footerRef = useRef(null);
   const isInView = useInView(footerRef, { once: true, margin: "-10%" });
+  const location = useLocation();
+  const navigate = useNavigate();
 
   // Animation Variants
   const containerVariants = {
@@ -79,22 +82,63 @@ const Footer = () => {
 
   const dividerVariants = {
     hidden: { scaleX: 0, opacity: 0 },
-    visible: { 
-      scaleX: 1, 
-      opacity: 1, 
-      transition: { duration: 1.5, ease: "easeOut", delay: 0.5 } 
+    visible: {
+      scaleX: 1,
+      opacity: 1,
+      transition: { duration: 1.5, ease: "easeOut", delay: 0.5 }
     }
   };
 
-  const scrollToSection = (e, targetId) => {
+  const handleNavClick = (e, path, sectionId) => {
     e.preventDefault();
-    if (targetId === '#') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (path === '/about') {
+      if (location.pathname === '/about') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        navigate('/about');
+      }
       return;
     }
-    const element = document.querySelector(targetId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+
+    if (path === '/programs') {
+      if (location.pathname === '/programs') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        navigate('/programs');
+      }
+      return;
+    }
+
+    if (path === '/contact') {
+      if (location.pathname === '/contact') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        navigate('/contact');
+      }
+      return;
+    }
+
+    if (path === '/') {
+      if (location.pathname === '/') {
+        if (!sectionId) {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          const element = document.querySelector(sectionId);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      } else {
+        navigate('/');
+        if (sectionId) {
+          setTimeout(() => {
+            const element = document.querySelector(sectionId);
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth' });
+            }
+          }, 150);
+        }
+      }
     }
   };
 
@@ -102,9 +146,9 @@ const Footer = () => {
     <footer className={styles.footerSection} ref={footerRef} id="contact">
       <div className={styles.topGradient}></div>
       {isInView && <Particles />}
-      
+
       <div className={styles.container}>
-        <motion.div 
+        <motion.div
           className={styles.footerGrid}
           variants={containerVariants}
           initial="hidden"
@@ -129,7 +173,7 @@ const Footer = () => {
               <a href="#" className={styles.socialIconWrapper} aria-label="Youtube">
                 <YoutubeIcon size={20} />
               </a>
-              <a href="#" className={styles.socialIconWrapper} aria-label="WhatsApp">
+              <a href="https://wa.me/919751808071" target="_blank" rel="noopener noreferrer" className={styles.socialIconWrapper} aria-label="WhatsApp">
                 <MessageCircle size={20} />
               </a>
             </div>
@@ -139,11 +183,11 @@ const Footer = () => {
           <motion.div className={styles.linksSection} variants={itemVariants}>
             <h4 className={styles.sectionTitle}>Quick Links</h4>
             <ul className={styles.linksList}>
-              <li className={styles.linkItem}><a href="#" onClick={(e) => scrollToSection(e, '#')}>Home</a></li>
-              <li className={styles.linkItem}><a href="#about" onClick={(e) => scrollToSection(e, '#about')}>About</a></li>
-              <li className={styles.linkItem}><a href="#facilities" onClick={(e) => scrollToSection(e, '#facilities')}>Programs</a></li>
-              <li className={styles.linkItem}><a href="#membership" onClick={(e) => scrollToSection(e, '#membership')}>Membership</a></li>
-              <li className={styles.linkItem}><a href="#contact" onClick={(e) => scrollToSection(e, '#contact')}>Contact</a></li>
+              <li className={styles.linkItem}><a href="/" onClick={(e) => handleNavClick(e, '/', null)}>Home</a></li>
+              <li className={styles.linkItem}><a href="/about" onClick={(e) => handleNavClick(e, '/about', null)}>About Us</a></li>
+              <li className={styles.linkItem}><a href="/programs" onClick={(e) => handleNavClick(e, '/programs', null)}>Programs</a></li>
+              <li className={styles.linkItem}><a href="/#membership" onClick={(e) => handleNavClick(e, '/', '#membership')}>Membership</a></li>
+              <li className={styles.linkItem}><a href="/contact" onClick={(e) => handleNavClick(e, '/contact', null)}>Contact</a></li>
             </ul>
           </motion.div>
 
@@ -178,7 +222,7 @@ const Footer = () => {
               <p className={styles.ctaDescription}>
                 Join the ultimate fitness community and start your journey towards excellence today.
               </p>
-              <button className={styles.ctaButton}>Join Today</button>
+              <button className={styles.ctaButton} onClick={(e) => handleNavClick(e, '/', '#membership')}>Join Today</button>
             </div>
           </motion.div>
 
@@ -186,14 +230,14 @@ const Footer = () => {
 
         {/* BOTTOM BAR */}
         <div className={styles.bottomBarWrapper}>
-          <motion.div 
+          <motion.div
             className={styles.animatedDivider}
             variants={dividerVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             style={{ transformOrigin: "center" }}
           />
-          <motion.div 
+          <motion.div
             className={styles.bottomBarContent}
             variants={itemVariants}
             initial="hidden"
@@ -207,7 +251,7 @@ const Footer = () => {
               <a href="#">Terms & Conditions</a>
             </div>
             <div className={styles.designedWith}>
-              Designed with ❤️
+              Designed with Rafeek
             </div>
           </motion.div>
         </div>
