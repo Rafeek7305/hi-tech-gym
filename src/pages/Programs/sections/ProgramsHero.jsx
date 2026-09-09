@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import heroBg from '../../../assets/programs/hero_bg.png';
+import heroBg from '../../../assets/programs/hero_bg.webp';
 import styles from '../Programs.module.css';
 
 const ProgramsHero = () => {
@@ -26,7 +26,13 @@ const ProgramsHero = () => {
   return (
     <section className={styles.heroSection}>
       <div className={styles.heroBgWrapper}>
-        <img src={heroBg} alt="Hi-Tech Gym Programs Training Atmosphere" className={styles.heroBgImage} />
+        <img
+          src={heroBg}
+          alt="Hi-Tech Gym fitness and strength training atmosphere in Tirunelveli"
+          fetchpriority="high"
+          decoding="async"
+          className={styles.heroBgImage}
+        />
         <div className={styles.heroOverlay} />
         <div className={styles.heroGlow} />
       </div>

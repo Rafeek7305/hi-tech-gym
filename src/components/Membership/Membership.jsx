@@ -199,7 +199,15 @@ const Membership = () => {
                 ))}
               </ul>
               
-              <button className={styles.joinBtn}>Join Now</button>
+              <button
+                className={styles.joinBtn}
+                onClick={() => {
+                  const el = document.getElementById('contact');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                Join Now
+              </button>
             </div>
           ))}
         </div>

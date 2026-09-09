@@ -22,7 +22,7 @@ const Particles = () => {
   const particles = Array.from({ length: 20 });
 
   return (
-    <div className={styles.particlesContainer}>
+    <div className={styles.particlesContainer} aria-hidden="true">
       {particles.map((_, i) => {
         const size = Math.random() * 4 + 2;
         const left = Math.random() * 100;
@@ -157,23 +157,29 @@ const Footer = () => {
           {/* SECTION 1: BRAND */}
           <motion.div className={styles.brandSection} variants={itemVariants}>
             <div className={styles.logoText}>
-              <img src={logoImg} alt="Gym Logo" style={{ height: '120px', width: 'auto', objectFit: 'contain', mixBlendMode: 'screen', marginBottom: '1.5rem' }} />
+              <img
+                src={logoImg}
+                alt="Hi-Tech Gym Logo"
+                loading="lazy"
+                decoding="async"
+                style={{ height: '120px', width: 'auto', objectFit: 'contain', mixBlendMode: 'screen', marginBottom: '1.5rem' }}
+              />
             </div>
             <p className={styles.brandDescription}>
               Transform Your Body.<br />
               Elevate Your Lifestyle.
             </p>
             <div className={styles.socialIcons}>
-              <a href="#" className={styles.socialIconWrapper} aria-label="Instagram">
+              <a href="#" className={styles.socialIconWrapper} aria-label="Follow Hi-Tech Gym on Instagram" rel="noopener noreferrer">
                 <InstagramIcon size={20} />
               </a>
-              <a href="#" className={styles.socialIconWrapper} aria-label="Facebook">
+              <a href="#" className={styles.socialIconWrapper} aria-label="Follow Hi-Tech Gym on Facebook" rel="noopener noreferrer">
                 <FacebookIcon size={20} />
               </a>
-              <a href="#" className={styles.socialIconWrapper} aria-label="Youtube">
+              <a href="#" className={styles.socialIconWrapper} aria-label="Visit Hi-Tech Gym on YouTube" rel="noopener noreferrer">
                 <YoutubeIcon size={20} />
               </a>
-              <a href="https://wa.me/919751808071" target="_blank" rel="noopener noreferrer" className={styles.socialIconWrapper} aria-label="WhatsApp">
+              <a href="https://wa.me/919751808071" target="_blank" rel="noopener noreferrer" className={styles.socialIconWrapper} aria-label="Chat with Hi-Tech Gym on WhatsApp">
                 <MessageCircle size={20} />
               </a>
             </div>
@@ -181,7 +187,7 @@ const Footer = () => {
 
           {/* SECTION 2: QUICK LINKS */}
           <motion.div className={styles.linksSection} variants={itemVariants}>
-            <h4 className={styles.sectionTitle}>Quick Links</h4>
+            <h3 className={styles.sectionTitle}>Quick Links</h3>
             <ul className={styles.linksList}>
               <li className={styles.linkItem}><a href="/" onClick={(e) => handleNavClick(e, '/', null)}>Home</a></li>
               <li className={styles.linkItem}><a href="/about" onClick={(e) => handleNavClick(e, '/about', null)}>About Us</a></li>
@@ -193,19 +199,21 @@ const Footer = () => {
 
           {/* SECTION 3: CONTACT */}
           <motion.div className={styles.contactSection} variants={itemVariants}>
-            <h4 className={styles.sectionTitle}>Contact</h4>
+            <h3 className={styles.sectionTitle}>Contact</h3>
             <ul className={styles.contactList}>
               <li className={styles.contactItem}>
                 <Phone size={18} className={styles.contactIcon} />
-                +91 97518 08071
+                <a href="tel:+919751808071" style={{ color: 'inherit' }}>+91 97518 08071</a>
               </li>
               <li className={styles.contactItem}>
                 <Mail size={18} className={styles.contactIcon} />
-                contact@hitechgym.com
+                <a href="mailto:contact@hitechgym.com" style={{ color: 'inherit' }}>contact@hitechgym.com</a>
               </li>
               <li className={styles.contactItem}>
                 <MapPin size={18} className={styles.contactIcon} />
-                Nethaji Rd, Engineers Colony,<br />Raja Nagar, Melapalayam,<br />Tirunelveli, Tamil Nadu 627005
+                <span>
+                  Nethaji Rd, Engineers Colony,<br />Raja Nagar, Melapalayam,<br />Tirunelveli, Tamil Nadu 627005
+                </span>
               </li>
             </ul>
             <div className={styles.workingHours}>
@@ -218,7 +226,7 @@ const Footer = () => {
           {/* SECTION 4: CTA CARD */}
           <motion.div className={styles.ctaSection} variants={itemVariants}>
             <div className={styles.ctaCard}>
-              <h4 className={styles.ctaHeading}>Ready To Become Stronger?</h4>
+              <h3 className={styles.ctaHeading}>Ready To Become Stronger?</h3>
               <p className={styles.ctaDescription}>
                 Join the ultimate fitness community and start your journey towards excellence today.
               </p>

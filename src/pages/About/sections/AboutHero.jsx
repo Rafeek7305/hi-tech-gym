@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, ArrowRight } from 'lucide-react';
-import heroBg from '../../../assets/about/hero_bg.png';
+import heroBg from '../../../assets/about/hero_bg.webp';
 import styles from '../About.module.css';
 
 const AboutHero = () => {
@@ -15,7 +15,12 @@ const AboutHero = () => {
   return (
     <section className={styles.heroSection}>
       <div className={styles.heroBgWrapper}>
-        <img src={heroBg} alt="Hi-Tech Gym modern environment" className={styles.heroBgImage} />
+        <img
+          src={heroBg}
+          alt="Hi-Tech Gym modern fitness training environment in Melapalayam"
+          fetchpriority="high"
+          className={styles.heroBgImage}
+        />
         <div className={styles.heroOverlay} />
         <div className={styles.heroGlow} />
       </div>

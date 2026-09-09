@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Check, ArrowRight, ShieldAlert } from 'lucide-react';
-import featuredImg from '../../../assets/programs/strength_training.png';
+import featuredImg from '../../../assets/programs/strength_training.webp';
 import styles from '../Programs.module.css';
 
 const focusItems = [
@@ -36,7 +36,9 @@ const FeaturedProgram = ({ onSelectProgram }) => {
             <div className={styles.featuredImageWrapper}>
               <img
                 src={featuredImg}
-                alt="Hi-Tech Gym Strength Training"
+                alt="Strength Training barbell workout and power rack at Hi-Tech Gym"
+                loading="lazy"
+                decoding="async"
                 className={styles.featuredImage}
               />
               <div className={styles.featuredImageOverlay} />
@@ -64,7 +66,7 @@ const FeaturedProgram = ({ onSelectProgram }) => {
             </p>
 
             <div className={styles.focusBlock}>
-              <h4 className={styles.focusHeaderTitle}>What You'll Focus On:</h4>
+              <h3 className={styles.focusHeaderTitle}>What You'll Focus On:</h3>
               <div className={styles.focusGrid}>
                 {focusItems.map((item, idx) => (
                   <div key={idx} className={styles.focusItem}>
@@ -72,7 +74,7 @@ const FeaturedProgram = ({ onSelectProgram }) => {
                       <Check size={14} />
                     </div>
                     <div>
-                      <h5 className={styles.focusItemTitle}>{item.title}</h5>
+                      <h4 className={styles.focusItemTitle}>{item.title}</h4>
                       <p className={styles.focusItemText}>{item.text}</p>
                     </div>
                   </div>

@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Rocket, Zap, Target } from 'lucide-react';
-import futureImg from '../../../assets/about/future_gym.png';
+import futureImg from '../../../assets/about/future_gym.webp';
 import styles from '../About.module.css';
 
 const FutureVision = () => {
@@ -61,7 +61,9 @@ const FutureVision = () => {
             <div className={styles.futureImageFrame}>
               <img
                 src={futureImg}
-                alt="Hi-Tech Gym Future High Tech Concept"
+                alt="Hi-Tech Gym modern fitness concept and advanced equipment vision"
+                loading="lazy"
+                decoding="async"
                 className={styles.futureImage}
               />
               <div className={styles.futureImageOverlay} />

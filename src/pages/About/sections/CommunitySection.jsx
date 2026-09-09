@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import communityImg from '../../../assets/about/community_img.png';
+import communityImg from '../../../assets/about/community_img.webp';
 import styles from '../About.module.css';
 
 const CommunitySection = () => {
@@ -21,7 +21,9 @@ const CommunitySection = () => {
             <div className={styles.communityImageWrapper}>
               <img
                 src={communityImg}
-                alt="Hi-Tech Gym community members training together"
+                alt="Hi-Tech Gym community members training and working out together"
+                loading="lazy"
+                decoding="async"
                 className={styles.communityImage}
               />
               <div className={styles.communityImageOverlay} />

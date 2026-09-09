@@ -19,7 +19,7 @@ const Navbar = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -84,11 +84,21 @@ const Navbar = () => {
 
   return (
     <header className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
-      <div className={styles.logo} onClick={(e) => handleNavClick(e, '/', null)} style={{ cursor: 'pointer' }}>
-        <img src={logoImg} alt="Gym Logo" className={styles.logoImg} />
-      </div>
+      <a
+        href="/"
+        className={styles.logo}
+        onClick={(e) => handleNavClick(e, '/', null)}
+        aria-label="Hi-Tech Gym Home"
+      >
+        <img
+          src={logoImg}
+          alt="Hi-Tech Gym Logo"
+          className={styles.logoImg}
+          fetchpriority="high"
+        />
+      </a>
 
-      <nav className={styles.navLinks}>
+      <nav className={styles.navLinks} aria-label="Main Navigation">
         <a
           href="/"
           onClick={(e) => handleNavClick(e, '/', null)}
@@ -130,13 +140,23 @@ const Navbar = () => {
         Join Now
       </button>
 
-      <button className={styles.mobileMenuBtn} onClick={toggleMobileMenu} aria-label="Toggle Navigation Menu">
+      <button
+        className={styles.mobileMenuBtn}
+        onClick={toggleMobileMenu}
+        aria-label="Toggle Navigation Menu"
+        aria-expanded={mobileMenuOpen}
+        aria-controls="mobile-navigation"
+      >
         {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
       </button>
 
       {/* MOBILE MENU */}
-      <div className={`${styles.mobileMenu} ${mobileMenuOpen ? styles.mobileMenuOpen : ''}`}>
-        <nav className={styles.mobileNavLinks}>
+      <div
+        id="mobile-navigation"
+        className={`${styles.mobileMenu} ${mobileMenuOpen ? styles.mobileMenuOpen : ''}`}
+        aria-hidden={!mobileMenuOpen}
+      >
+        <nav className={styles.mobileNavLinks} aria-label="Mobile Navigation">
           <a href="/" className={styles.mobileNavLink} onClick={(e) => handleNavClick(e, '/', null)}>Home</a>
           <a href="/about" className={styles.mobileNavLink} onClick={(e) => handleNavClick(e, '/about', null)}>About</a>
           <a href="/programs" className={styles.mobileNavLink} onClick={(e) => handleNavClick(e, '/programs', null)}>Programs</a>

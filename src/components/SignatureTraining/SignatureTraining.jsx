@@ -3,10 +3,10 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './SignatureTraining.module.css';
 
-import strengthImg from '../../assets/strength_training.png';
-import functionalImg from '../../assets/functional_fitness.png';
-import coachingImg from '../../assets/personal_coaching.png';
-import recoveryImg from '../../assets/recovery_zone.png';
+import strengthImg from '../../assets/strength_training.webp';
+import functionalImg from '../../assets/functional_fitness.webp';
+import coachingImg from '../../assets/personal_coaching.webp';
+import recoveryImg from '../../assets/recovery_zone.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -201,7 +201,13 @@ const SignatureTraining = () => {
           {[...cardsData, ...cardsData, ...cardsData, ...cardsData].map((card, index) => (
               <div key={index} className={styles.card}>
                 <div className={styles.cardInner}>
-                  <img src={card.image} alt={card.title} className={styles.cardImage} />
+                  <img
+                    src={card.image}
+                    alt={`${card.title} training zone at Hi-Tech Gym`}
+                    loading="lazy"
+                    decoding="async"
+                    className={styles.cardImage}
+                  />
                   <div className={styles.overlay}></div>
                   <div className={styles.cardBorder}></div>
                   

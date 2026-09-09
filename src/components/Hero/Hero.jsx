@@ -145,7 +145,7 @@ const Hero = () => {
           <div className={styles.descriptionWrapper}>
             <div className={styles.verticalLine} />
             <p className={styles.description}>
-              Join the best gym in town. We offer top-quality equipment, expert personal trainers, and a clean, welcoming space for everyone to achieve their fitness goals.
+              Welcome to Hi-Tech Gym, Melapalayam's premier fitness center. We offer world-class strength equipment, expert personal trainers, and a clean, welcoming space for everyone to achieve their fitness goals.
             </p>
           </div>
           

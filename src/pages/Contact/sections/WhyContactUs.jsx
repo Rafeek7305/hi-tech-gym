@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { HeartHandshake, MessageSquare } from 'lucide-react';
-import helpImg from '../../../assets/about/community_img.png';
+import helpImg from '../../../assets/about/community_img.webp';
 import styles from '../Contact.module.css';
 
 const WhyContactUs = () => {
@@ -64,7 +64,9 @@ const WhyContactUs = () => {
             <div className={styles.helpImageWrapper}>
               <img
                 src={helpImg}
-                alt="Hi-Tech Gym Community Support"
+                alt="Friendly and supportive fitness community at Hi-Tech Gym"
+                loading="lazy"
+                decoding="async"
                 className={styles.helpImage}
               />
               <div className={styles.helpImageOverlay} />
