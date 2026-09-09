@@ -1,14 +1,15 @@
 import React, { useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './Facilities.module.css';
 
 // Import Assets
-import strengthImg from '../../assets/facility_strength.png';
-import functionalImg from '../../assets/facility_functional.png';
-import cardioImg from '../../assets/facility_cardio.png';
-import recoveryImg from '../../assets/facility_recovery_v2.png';
+import strengthImg from '../../assets/facility_strength.webp';
+import functionalImg from '../../assets/facility_functional.webp';
+import cardioImg from '../../assets/facility_cardio.webp';
+import recoveryImg from '../../assets/facility_recovery_v2.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -64,6 +65,7 @@ const Facilities = () => {
   const trackRef = useRef(null);
   const wrapperRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: '-10%' });
+  const navigate = useNavigate();
 
   // Framer Motion Header Variants
   const headerVariants = {
@@ -182,7 +184,13 @@ const Facilities = () => {
                 
                 {/* Background Image & Overlay */}
                 <div className={styles.imageContainer}>
-                  <img src={facility.image} alt={facility.name} className={styles.bgImage} />
+                  <img
+                    src={facility.image}
+                    alt={`${facility.name} at Hi-Tech Gym Melapalayam`}
+                    loading="lazy"
+                    decoding="async"
+                    className={styles.bgImage}
+                  />
                   <div className={styles.overlay}></div>
                 </div>
 
@@ -211,7 +219,7 @@ const Facilities = () => {
                     ))}
                   </ul>
                   
-                  <button className={styles.exploreBtn}>Explore</button>
+                  <button className={styles.exploreBtn} onClick={() => navigate('/programs')}>Explore</button>
                 </div>
                 
               </div>

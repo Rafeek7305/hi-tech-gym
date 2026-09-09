@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { MessageSquare, MapPin, ChevronDown } from 'lucide-react';
-import heroBg from '../../../assets/gym_workout_1.png';
+import heroBg from '../../../assets/gym_workout_1.webp';
 import styles from '../Contact.module.css';
 
 const ContactHero = () => {
@@ -20,7 +20,9 @@ const ContactHero = () => {
       <div className={styles.heroBgWrapper}>
         <img
           src={heroBg}
-          alt="Hi-Tech Gym Premium Fitness Atmosphere"
+          alt="Hi-Tech Gym Premium Fitness Atmosphere in Melapalayam Tirunelveli"
+          fetchpriority="high"
+          decoding="async"
           className={styles.heroBgImage}
         />
         <div className={styles.heroOverlay} />

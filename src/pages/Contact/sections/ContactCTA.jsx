@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Navigation } from 'lucide-react';
-import ctaBg from '../../../assets/gym_workout_3.png';
+import ctaBg from '../../../assets/gym_workout_3.webp';
 import styles from '../Contact.module.css';
 
 const ContactCTA = () => {
@@ -12,7 +12,9 @@ const ContactCTA = () => {
       <div className={styles.ctaBgWrapper}>
         <img
           src={ctaBg}
-          alt="Hi-Tech Gym Motivational Atmosphere"
+          alt="Hi-Tech Gym motivational workout environment background"
+          loading="lazy"
+          decoding="async"
           className={styles.ctaBgImage}
         />
         <div className={styles.ctaOverlay} />
