@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, PhoneCall } from 'lucide-react';
-import ctaBg from '../../../assets/about/cta_bg.png';
+import ctaBg from '../../../assets/about/cta_bg.webp';
 import styles from '../About.module.css';
 
 const AboutCTA = () => {
@@ -27,7 +27,13 @@ const AboutCTA = () => {
   return (
     <section className={styles.ctaSection}>
       <div className={styles.ctaBgWrapper}>
-        <img src={ctaBg} alt="Hi-Tech Gym motivational atmospheric background" className={styles.ctaBgImage} />
+        <img
+          src={ctaBg}
+          alt="Hi-Tech Gym fitness training atmosphere background"
+          loading="lazy"
+          decoding="async"
+          className={styles.ctaBgImage}
+        />
         <div className={styles.ctaOverlay} />
         <div className={styles.ctaGlow} />
       </div>

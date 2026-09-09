@@ -1,16 +1,18 @@
 import { useRef, useLayoutEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './About.module.css';
 
-import img1 from '../../assets/gym_workout_1.png';
-import img2 from '../../assets/gym_workout_2.png';
-import img3 from '../../assets/gym_workout_3.png';
+import img1 from '../../assets/gym_workout_1.webp';
+import img2 from '../../assets/gym_workout_2.webp';
+import img3 from '../../assets/gym_workout_3.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
   const sectionRef = useRef(null);
+  const navigate = useNavigate();
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
@@ -105,17 +107,23 @@ const About = () => {
             
             <img 
               src={img3} 
-              alt="Gym Equipment" 
+              alt="Premium weight training equipment and dumbbells at Hi-Tech Gym" 
+              loading="lazy"
+              decoding="async"
               className={`${styles.collageImage} ${styles.image3}`} 
             />
             <img 
               src={img1} 
-              alt="Weightlifting" 
+              alt="Athlete performing heavy barbell strength workout at Hi-Tech Gym" 
+              loading="lazy"
+              decoding="async"
               className={`${styles.collageImage} ${styles.image1}`} 
             />
             <img 
               src={img2} 
-              alt="Pullups" 
+              alt="Functional fitness and pullup training zone at Hi-Tech Gym" 
+              loading="lazy"
+              decoding="async"
               className={`${styles.collageImage} ${styles.image2}`} 
             />
           </div>
@@ -151,7 +159,7 @@ const About = () => {
             </div>
           </div>
 
-          <button className={styles.discoverButton}>
+          <button className={styles.discoverButton} onClick={() => navigate('/about')}>
             Discover More
           </button>
         </div>

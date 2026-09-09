@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { HeartHandshake, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import beginnerImg from '../../../assets/programs/beginner_friendly.png';
+import beginnerImg from '../../../assets/programs/beginner_friendly.webp';
 import styles from '../Programs.module.css';
 
 const BeginnerSection = () => {
@@ -71,7 +71,9 @@ const BeginnerSection = () => {
             <div className={styles.beginnerImageWrapper}>
               <img
                 src={beginnerImg}
-                alt="Welcoming modern gym atmosphere for beginners"
+                alt="Beginner-friendly and welcoming gym environment at Hi-Tech Gym"
+                loading="lazy"
+                decoding="async"
                 className={styles.beginnerImage}
               />
               <div className={styles.beginnerImageOverlay} />

@@ -142,9 +142,12 @@ const ContactForm = () => {
                       value={formData.fullName}
                       onChange={handleChange}
                       placeholder="e.g. John Doe"
+                      aria-required="true"
+                      aria-invalid={errors.fullName ? "true" : "false"}
+                      aria-describedby={errors.fullName ? "fullName-error" : undefined}
                       className={`${styles.textInput} ${errors.fullName ? styles.inputError : ''}`}
                     />
-                    {errors.fullName && <span className={styles.errorText}>{errors.fullName}</span>}
+                    {errors.fullName && <span id="fullName-error" className={styles.errorText} role="alert">{errors.fullName}</span>}
                   </div>
 
                   {/* PHONE NUMBER */}
@@ -159,9 +162,12 @@ const ContactForm = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="e.g. +91 97518 08071"
+                      aria-required="true"
+                      aria-invalid={errors.phone ? "true" : "false"}
+                      aria-describedby={errors.phone ? "phone-error" : undefined}
                       className={`${styles.textInput} ${errors.phone ? styles.inputError : ''}`}
                     />
-                    {errors.phone && <span className={styles.errorText}>{errors.phone}</span>}
+                    {errors.phone && <span id="phone-error" className={styles.errorText} role="alert">{errors.phone}</span>}
                   </div>
 
                   {/* EMAIL ADDRESS */}
@@ -176,9 +182,11 @@ const ContactForm = () => {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="e.g. john@example.com"
+                      aria-invalid={errors.email ? "true" : "false"}
+                      aria-describedby={errors.email ? "email-error" : undefined}
                       className={`${styles.textInput} ${errors.email ? styles.inputError : ''}`}
                     />
-                    {errors.email && <span className={styles.errorText}>{errors.email}</span>}
+                    {errors.email && <span id="email-error" className={styles.errorText} role="alert">{errors.email}</span>}
                   </div>
 
                   {/* SUBJECT SELECT */}
@@ -213,13 +221,16 @@ const ContactForm = () => {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="How can we help you on your fitness journey?"
+                      aria-required="true"
+                      aria-invalid={errors.message ? "true" : "false"}
+                      aria-describedby={errors.message ? "message-error" : undefined}
                       className={`${styles.textareaInput} ${errors.message ? styles.inputError : ''}`}
                     />
-                    {errors.message && <span className={styles.errorText}>{errors.message}</span>}
+                    {errors.message && <span id="message-error" className={styles.errorText} role="alert">{errors.message}</span>}
                   </div>
 
                   {status === 'error' && (
-                    <div className={styles.formErrorNotice}>
+                    <div className={styles.formErrorNotice} role="alert">
                       <AlertCircle size={18} />
                       <span>Something went wrong. Please try again or call us directly.</span>
                     </div>
@@ -231,6 +242,7 @@ const ContactForm = () => {
                       type="submit"
                       className={styles.submitBtn}
                       disabled={status === 'sending'}
+                      aria-busy={status === 'sending'}
                     >
                       {status === 'sending' ? (
                         <>

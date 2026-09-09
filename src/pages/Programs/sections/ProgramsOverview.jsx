@@ -1,12 +1,12 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { ArrowRight, Layers, CheckCircle2 } from 'lucide-react';
-import strengthImg from '../../../assets/programs/strength_training.png';
-import muscleImg from '../../../assets/programs/muscle_building.png';
-import weightLossImg from '../../../assets/programs/weight_loss.png';
-import functionalImg from '../../../assets/programs/functional_training.png';
-import personalImg from '../../../assets/programs/personal_training.png';
-import generalImg from '../../../assets/programs/beginner_friendly.png';
+import strengthImg from '../../../assets/programs/strength_training.webp';
+import muscleImg from '../../../assets/programs/muscle_building.webp';
+import weightLossImg from '../../../assets/programs/weight_loss.webp';
+import functionalImg from '../../../assets/programs/functional_training.webp';
+import personalImg from '../../../assets/programs/personal_training.webp';
+import generalImg from '../../../assets/programs/beginner_friendly.webp';
 import styles from '../Programs.module.css';
 
 export const programsData = [
@@ -120,7 +120,13 @@ const ProgramsOverview = ({ selectedGoal, setSelectedGoal, onSelectProgram }) =>
               transition={{ duration: 0.8, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
             >
               <div className={styles.programImageContainer}>
-                <img src={program.image} alt={program.name} className={styles.programImage} />
+                <img
+                  src={program.image}
+                  alt={`${program.name} fitness program at Hi-Tech Gym`}
+                  loading="lazy"
+                  decoding="async"
+                  className={styles.programImage}
+                />
                 <div className={styles.programOverlay} />
                 <div className={styles.programCategoryBadge}>
                   <Layers size={13} />

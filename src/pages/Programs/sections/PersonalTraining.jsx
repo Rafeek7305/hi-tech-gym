@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Target, UserCheck, ShieldCheck, TrendingUp, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import personalImg from '../../../assets/programs/personal_training.png';
+import personalImg from '../../../assets/programs/personal_training.webp';
 import styles from '../Programs.module.css';
 
 const pillars = [
@@ -39,7 +39,9 @@ const PersonalTraining = () => {
             <div className={styles.personalImageWrapper}>
               <img
                 src={personalImg}
-                alt="Hi-Tech Gym Personal Training Guidance"
+                alt="One-on-one personal training coaching session at Hi-Tech Gym"
+                loading="lazy"
+                decoding="async"
                 className={styles.personalImage}
               />
               <div className={styles.personalImageOverlay} />
@@ -76,7 +78,7 @@ const PersonalTraining = () => {
                       <IconComp size={18} />
                     </div>
                     <div>
-                      <h4 className={styles.pillarTitle}>{item.title}</h4>
+                      <h3 className={styles.pillarTitle}>{item.title}</h3>
                       <p className={styles.pillarDesc}>{item.desc}</p>
                     </div>
                   </div>

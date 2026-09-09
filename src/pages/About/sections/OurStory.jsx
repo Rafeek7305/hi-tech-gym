@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import storyImg from '../../../assets/about/story_img.png';
+import storyImg from '../../../assets/about/story_img.webp';
 import styles from '../About.module.css';
 
 const OurStory = () => {
@@ -49,7 +49,13 @@ const OurStory = () => {
             transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className={styles.storyImageWrapper}>
-              <img src={storyImg} alt="Athletic workout at Hi-Tech Gym" className={styles.storyImage} />
+              <img
+                src={storyImg}
+                alt="Athletic strength and endurance training workout at Hi-Tech Gym"
+                loading="lazy"
+                decoding="async"
+                className={styles.storyImage}
+              />
               <div className={styles.imageOverlayGradient} />
               <div className={styles.imageGoldFrame} />
               <div className={styles.imageBadge}>

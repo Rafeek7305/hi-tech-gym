@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { ShieldCheck, Award, UserCheck } from 'lucide-react';
-import organizerImgPlaceholder from '../../../assets/about/organizer_placeholder.png';
-import masterImgPlaceholder from '../../../assets/about/master_placeholder.png';
+import organizerImgPlaceholder from '../../../assets/about/organizer_placeholder.webp';
+import masterImgPlaceholder from '../../../assets/about/master_placeholder.webp';
 import styles from '../About.module.css';
 
 // Default team data structured for easy future updates/replacement of real photos & details
@@ -61,7 +61,9 @@ const TeamSection = () => {
                 <div className={styles.teamImageContainer}>
                   <img
                     src={member.image}
-                    alt={`${member.name} - ${member.roleTitle}`}
+                    alt={`${member.name} - ${member.roleTitle} at Hi-Tech Gym`}
+                    loading="lazy"
+                    decoding="async"
                     className={styles.teamImage}
                   />
                   <div className={styles.teamImageOverlay} />
