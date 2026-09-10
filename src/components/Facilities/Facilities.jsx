@@ -221,13 +221,7 @@ const Facilities = () => {
                     ))}
                   </ul>
                   
-                  <button 
-                    className={styles.exploreBtn} 
-                    onClick={() => navigate('/programs')}
-                    aria-label={`Explore ${facility.name}`}
-                  >
-                    Explore
-                  </button>
+                  <button className={styles.exploreBtn} onClick={() => navigate('/programs')}>Explore</button>
                 </div>
                 
               </div>

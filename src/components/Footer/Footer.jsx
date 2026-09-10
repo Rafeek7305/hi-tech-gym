@@ -182,41 +182,17 @@ const Footer = () => {
               Elevate Your Lifestyle.
             </p>
             <div className={styles.socialIcons}>
-              <a 
-                href="https://www.instagram.com/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className={`${styles.socialIconWrapper} ${styles.socialIconInstagram}`} 
-                aria-label="Follow Hi-Tech Gym on Instagram"
-              >
+              <a href="#" className={styles.socialIconWrapper} aria-label="Follow Hi-Tech Gym on Instagram" rel="noopener noreferrer">
                 <InstagramIcon size={20} />
               </a>
-              <a 
-                href="https://www.facebook.com/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className={`${styles.socialIconWrapper} ${styles.socialIconFacebook}`} 
-                aria-label="Follow Hi-Tech Gym on Facebook"
-              >
+              <a href="#" className={styles.socialIconWrapper} aria-label="Follow Hi-Tech Gym on Facebook" rel="noopener noreferrer">
                 <FacebookIcon size={20} />
               </a>
-              <a 
-                href="https://www.youtube.com/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className={`${styles.socialIconWrapper} ${styles.socialIconYoutube}`} 
-                aria-label="Visit Hi-Tech Gym on YouTube"
-              >
+              <a href="#" className={styles.socialIconWrapper} aria-label="Visit Hi-Tech Gym on YouTube" rel="noopener noreferrer">
                 <YoutubeIcon size={20} />
               </a>
-              <a 
-                href="https://wa.me/919751808071" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className={`${styles.socialIconWrapper} ${styles.socialIconWhatsapp}`} 
-                aria-label="Chat with Hi-Tech Gym on WhatsApp"
-              >
-                <WhatsappIcon size={20} />
+              <a href="https://wa.me/919751808071" target="_blank" rel="noopener noreferrer" className={styles.socialIconWrapper} aria-label="Chat with Hi-Tech Gym on WhatsApp">
+                <MessageCircle size={20} />
               </a>
             </div>
           </motion.div>
