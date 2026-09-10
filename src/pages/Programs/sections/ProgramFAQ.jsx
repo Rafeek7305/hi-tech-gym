@@ -50,7 +50,7 @@ const ProgramFAQ = () => {
           transition={{ duration: 0.8 }}
         >
           <span className={styles.sectionCategory}>QUESTIONS & ANSWERS</span>
-          <h2 className={styles.sectionTitle}>Frequently Asked Questions</h2>
+          <h2 className={styles.sectionTitle}>Frequently Asked <span>Questions</span></h2>
           <p className={styles.sectionSubtitle}>
             Clear information to help you get started with confidence.
           </p>

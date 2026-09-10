@@ -103,3 +103,28 @@
      background-color: var(--color-bg-secondary);
    }
    
+   .gold-gradient-text,
+   .goldGradientText {
+     background: linear-gradient(
+       270deg,
+       var(--color-primary, #D4AF37) 0%,
+       #FFDF73 25%,
+       #FFFFFF 50%,
+       #FFDF73 75%,
+       var(--color-primary, #D4AF37) 100%
+     );
+     background-size: 200% auto;
+     color: transparent;
+     -webkit-background-clip: text;
+     background-clip: text;
+     -webkit-text-fill-color: transparent;
+     animation: shine 4s linear infinite;
+     display: inline-block;
+     padding-bottom: 0.35em;
+     margin-bottom: -0.35em;
+     padding-top: 0.05em;
+     margin-top: -0.05em;
+     padding-right: 0.1em;
+     margin-right: -0.1em;
+     line-height: inherit;
+   }

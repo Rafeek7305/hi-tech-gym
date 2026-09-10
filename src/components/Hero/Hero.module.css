@@ -79,7 +79,7 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 1.5rem;
-  line-height: 1.05;
+  line-height: 1.2;
 }
 
 .highlight {
@@ -97,6 +97,13 @@
   -webkit-background-clip: text;
   background-clip: text;
   animation: shine 4s linear infinite;
+  padding-bottom: 0.35em;
+  margin-bottom: -0.35em;
+  padding-top: 0.05em;
+  margin-top: -0.05em;
+  padding-right: 0.1em;
+  margin-right: -0.1em;
+  line-height: inherit;
 }
 
 @keyframes shine {

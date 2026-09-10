@@ -4,19 +4,20 @@ import { Clock, CalendarCheck } from 'lucide-react';
 import styles from '../Contact.module.css';
 
 const daysSchedule = [
-  { day: 'Monday', morning: '6:00 AM – 10:00 AM', evening: '5:00 PM – 9:00 PM', dayIdx: 1 },
-  { day: 'Tuesday', morning: '6:00 AM – 10:00 AM', evening: '5:00 PM – 9:00 PM', dayIdx: 2 },
-  { day: 'Wednesday', morning: '6:00 AM – 10:00 AM', evening: '5:00 PM – 9:00 PM', dayIdx: 3 },
-  { day: 'Thursday', morning: '6:00 AM – 10:00 AM', evening: '5:00 PM – 9:00 PM', dayIdx: 4 },
-  { day: 'Friday', morning: '6:00 AM – 10:00 AM', evening: '5:00 PM – 9:00 PM', dayIdx: 5 },
-  { day: 'Saturday', morning: '6:00 AM – 10:00 AM', evening: '5:00 PM – 9:00 PM', dayIdx: 6 },
-  { day: 'Sunday', morning: '6:00 AM – 10:00 AM', evening: '5:00 PM – 9:00 PM', dayIdx: 0 }
+  { day: 'Monday', morning: '6:00 AM – 10:00 AM', evening: '5:00 PM – 9:00 PM', dayIdx: 1, isClosed: false },
+  { day: 'Tuesday', morning: '6:00 AM – 10:00 AM', evening: '5:00 PM – 9:00 PM', dayIdx: 2, isClosed: false },
+  { day: 'Wednesday', morning: '6:00 AM – 10:00 AM', evening: '5:00 PM – 9:00 PM', dayIdx: 3, isClosed: false },
+  { day: 'Thursday', morning: '6:00 AM – 10:00 AM', evening: '5:00 PM – 9:00 PM', dayIdx: 4, isClosed: false },
+  { day: 'Friday', morning: '6:00 AM – 10:00 AM', evening: '5:00 PM – 9:00 PM', dayIdx: 5, isClosed: false },
+  { day: 'Saturday', morning: '6:00 AM – 10:00 AM', evening: '5:00 PM – 9:00 PM', dayIdx: 6, isClosed: false },
+  { day: 'Sunday', dayIdx: 0, isClosed: true }
 ];
 
 const OpeningHours = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-15%' });
   const todayIdx = new Date().getDay();
+  const isSundayToday = todayIdx === 0;
 
   return (
     <section className={styles.section} id="opening-hours" ref={ref}>
@@ -35,13 +36,20 @@ const OpeningHours = () => {
                 </div>
                 <div>
                   <span className={styles.sectionCategory}>TRAINING SCHEDULE</span>
-                  <h2 className={styles.hoursTitle}>When To Visit</h2>
+                  <h2 className={styles.hoursTitle}>When To <span>Visit</span></h2>
                 </div>
               </div>
-              <div className={styles.openDailyTag}>
-                <CalendarCheck size={16} />
-                <span>OPEN DAILY</span>
-              </div>
+              {isSundayToday ? (
+                <div className={styles.closedDailyTag}>
+                  <span className={styles.closedIndicatorDot} />
+                  <span>CLOSED TODAY</span>
+                </div>
+              ) : (
+                <div className={styles.openDailyTag}>
+                  <CalendarCheck size={16} />
+                  <span>MON – SAT</span>
+                </div>
+              )}
             </div>
 
             <div className={styles.hoursList}>
@@ -50,17 +58,38 @@ const OpeningHours = () => {
                 return (
                   <div
                     key={item.day}
-                    className={`${styles.hoursRow} ${isToday ? styles.hoursRowToday : ''}`}
+                    className={`${styles.hoursRow} ${
+                      isToday 
+                        ? item.isClosed 
+                          ? styles.hoursRowTodayClosed 
+                          : styles.hoursRowToday 
+                        : ''
+                    }`}
                   >
                     <div className={styles.dayNameCell}>
                       <span className={styles.dayName}>{item.day}</span>
-                      {isToday && <span className={styles.todayIndicator}>TODAY</span>}
+                      {isToday && (
+                        <span 
+                          className={`${styles.todayIndicator} ${
+                            item.isClosed ? styles.todayIndicatorClosed : ''
+                          }`}
+                        >
+                          TODAY
+                        </span>
+                      )}
                     </div>
-                    <div className={styles.hoursBadgesGroup}>
-                      <span className={styles.sessionBadge}>{item.morning}</span>
-                      <span className={styles.sessionDivider}>•</span>
-                      <span className={styles.sessionBadge}>{item.evening}</span>
-                    </div>
+                    {item.isClosed ? (
+                      <div className={styles.closedBadgeGroup}>
+                        <span className={styles.closedIndicatorDot} />
+                        <span className={styles.closedText}>Closed</span>
+                      </div>
+                    ) : (
+                      <div className={styles.hoursBadgesGroup}>
+                        <span className={styles.sessionBadge}>{item.morning}</span>
+                        <span className={styles.sessionDivider}>•</span>
+                        <span className={styles.sessionBadge}>{item.evening}</span>
+                      </div>
+                    )}
                   </div>
                 );
               })}

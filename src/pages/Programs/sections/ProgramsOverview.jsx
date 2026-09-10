@@ -91,7 +91,7 @@ const ProgramsOverview = ({ selectedGoal, setSelectedGoal, onSelectProgram }) =>
           transition={{ duration: 0.8 }}
         >
           <span className={styles.sectionCategory}>PROGRAM SELECTION</span>
-          <h2 className={styles.sectionTitle}>Our Programs</h2>
+          <h2 className={styles.sectionTitle}>Our <span>Programs</span></h2>
           <p className={styles.sectionSubtitle}>
             Designed for different goals, different starting points and different journeys.
           </p>

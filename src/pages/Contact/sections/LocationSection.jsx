@@ -20,7 +20,7 @@ const LocationSection = () => {
           transition={{ duration: 0.8 }}
         >
           <span className={styles.sectionCategory}>OUR LOCATION</span>
-          <h2 className={styles.sectionTitle}>Find Us</h2>
+          <h2 className={styles.sectionTitle}>Find <span>Us</span></h2>
           <p className={styles.sectionSubtitle}>
             Your next workout could be closer than you think. Visit our high-tech facility in Melapalayam.
           </p>

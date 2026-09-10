@@ -167,7 +167,7 @@ const Membership = () => {
             Membership
           </div>
           <h2 className={styles.mainTitle}>
-            Choose Your Fitness Journey
+            Choose Your <span>Fitness Journey</span>
           </h2>
           <p className={styles.luxuryDescription}>
             Select a tier that aligns with your ambitions. Every membership grants access to our world-class environment, with escalating benefits for those who demand more.

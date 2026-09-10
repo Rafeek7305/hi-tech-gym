@@ -55,7 +55,7 @@ const ProgramComparison = () => {
           transition={{ duration: 0.8 }}
         >
           <span className={styles.sectionCategory}>SIDE-BY-SIDE MATRIX</span>
-          <h2 className={styles.sectionTitle}>Find The Right Training For You</h2>
+          <h2 className={styles.sectionTitle}>Find The Right <span>Training For You</span></h2>
           <p className={styles.sectionSubtitle}>
             Compare program goals, training focus, and experience levels at a glance.
           </p>

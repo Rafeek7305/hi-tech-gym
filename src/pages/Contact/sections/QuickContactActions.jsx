@@ -17,7 +17,7 @@ const QuickContactActions = () => {
           transition={{ duration: 0.8 }}
         >
           <span className={styles.sectionCategory}>FASTEST CONNECT</span>
-          <h2 className={styles.sectionTitle}>Instant Contact Actions</h2>
+          <h2 className={styles.sectionTitle}>Instant <span>Contact Actions</span></h2>
           <p className={styles.sectionSubtitle}>
             Tap below to reach us directly on your phone or launch map navigation.
           </p>

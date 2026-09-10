@@ -63,7 +63,7 @@ const GoalSelector = ({ selectedGoal, setSelectedGoal }) => {
           transition={{ duration: 0.8 }}
         >
           <span className={styles.sectionCategory}>CHOOSE YOUR PATH</span>
-          <h2 className={styles.sectionTitle}>What's Your Goal?</h2>
+          <h2 className={styles.sectionTitle}>What's Your <span>Goal?</span></h2>
           <p className={styles.sectionSubtitle}>
             Choose what you want to work towards and discover the training approach that fits you.
           </p>

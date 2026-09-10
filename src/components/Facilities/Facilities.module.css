@@ -37,8 +37,39 @@
   font-weight: 900;
   color: #FFFFFF;
   margin-bottom: 2rem;
-  line-height: 1.1;
+  line-height: 1.25;
   text-transform: uppercase;
+}
+
+.mainTitle span {
+  display: inline-block;
+  background: linear-gradient(
+    270deg,
+    var(--color-primary) 0%,
+    #FFDF73 25%,
+    #FFFFFF 50%,
+    #FFDF73 75%,
+    var(--color-primary) 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 4s linear infinite;
+  padding-bottom: 0.35em;
+  margin-bottom: -0.35em;
+  padding-top: 0.05em;
+  margin-top: -0.05em;
+  padding-right: 0.1em;
+  margin-right: -0.1em;
+  line-height: inherit;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
 }
 
 .headerDescription {
@@ -70,9 +101,9 @@
 .facilityCard {
   width: 90vw;
   max-width: 1000px;
-  height: 70vh;
-  min-height: 500px;
-  max-height: 700px;
+  height: 72vh;
+  min-height: 520px;
+  max-height: 680px;
   position: relative;
   border-radius: 20px;
   overflow: hidden;
@@ -127,10 +158,10 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 3;
-  width: 45%;
-  min-width: 350px;
-  max-width: 450px;
-  padding: 3.5rem;
+  width: 46%;
+  min-width: 360px;
+  max-width: 480px;
+  padding: 2.2rem 2.4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -140,37 +171,39 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+  max-height: calc(100% - 2rem);
+  box-sizing: border-box;
 }
 
 .facilityName {
-  font-size: clamp(2rem, 3vw, 2.5rem);
+  font-size: clamp(1.75rem, 2.4vw, 2.25rem);
   font-weight: 800;
   color: #FFFFFF;
-  margin-bottom: 1.5rem;
-  line-height: 1.2;
+  margin-bottom: 1rem;
+  line-height: 1.15;
 }
 
 .goldenDivider {
-  width: 60px;
+  width: 50px;
   height: 2px;
   background-color: var(--color-primary);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .facilityDescription {
   color: rgba(255, 255, 255, 0.85);
-  font-size: 1.05rem;
-  line-height: 1.7;
-  margin-bottom: 2rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
 }
 
 .featureList {
   list-style: none;
   padding: 0;
-  margin: 0 0 2.5rem 0;
+  margin: 0 0 1.5rem 0;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.65rem;
 }
 
 .featureItem {
@@ -180,9 +213,9 @@
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 50px;
-  padding: 0.8rem 1.5rem;
+  padding: 0.55rem 1.25rem;
   color: #FFFFFF;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 500;
   transition: all 0.3s ease;
 }
@@ -200,12 +233,12 @@
 
 .featureIcon {
   color: var(--color-primary);
-  font-size: 1rem;
+  font-size: 0.9rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   border: 1px solid rgba(212, 175, 55, 0.5);
   background: rgba(212, 175, 55, 0.1);
@@ -226,8 +259,8 @@
   background: linear-gradient(90deg, #D4AF37 0%, #FFDF73 100%);
   color: #0A0A0A;
   border: none;
-  padding: 1rem 2.5rem;
-  font-size: 1rem;
+  padding: 0.85rem 2.2rem;
+  font-size: 0.95rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -239,6 +272,7 @@
   align-items: center;
   gap: 0.8rem;
   box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+  flex-shrink: 0;
 }
 
 .exploreBtn::after {
@@ -254,6 +288,56 @@
 
 .exploreBtn:hover::after {
   transform: translateX(5px);
+}
+
+/* LAPTOP / SHORT SCREEN OPTIMIZATION */
+@media (max-height: 750px) and (min-width: 992px) {
+  .facilityCard {
+    height: 78vh;
+    min-height: 480px;
+  }
+  .contentContainer {
+    left: 2rem;
+    padding: 1.5rem 1.8rem;
+    max-height: calc(100% - 1.5rem);
+  }
+  .facilityName {
+    font-size: 1.6rem;
+    margin-bottom: 0.75rem;
+  }
+  .goldenDivider {
+    margin-bottom: 0.75rem;
+  }
+  .facilityDescription {
+    font-size: 0.88rem;
+    line-height: 1.45;
+    margin-bottom: 0.9rem;
+  }
+  .featureList {
+    margin: 0 0 1.1rem 0;
+    gap: 0.45rem;
+  }
+  .featureItem {
+    padding: 0.45rem 1rem;
+    font-size: 0.82rem;
+  }
+  .featureIcon {
+    width: 22px;
+    height: 22px;
+    font-size: 0.8rem;
+  }
+  .exploreBtn {
+    padding: 0.7rem 1.8rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 1200px) and (min-width: 992px) {
+  .contentContainer {
+    left: 2rem;
+    width: 50%;
+    min-width: 340px;
+  }
 }
 
 /* RESPONSIVE */

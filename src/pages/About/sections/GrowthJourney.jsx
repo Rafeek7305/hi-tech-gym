@@ -48,7 +48,7 @@ const GrowthJourney = () => {
           transition={{ duration: 0.8 }}
         >
           <span className={styles.sectionCategory}>EVOLUTION</span>
-          <h2 className={styles.sectionTitle}>Built With Passion. Growing With Purpose.</h2>
+          <h2 className={styles.sectionTitle}>Built With Passion. <span>Growing With Purpose.</span></h2>
           <p className={styles.sectionSubtitle}>
             Our growth is defined not by calendar dates, but by the relentless pursuit of strength and excellence.
           </p>

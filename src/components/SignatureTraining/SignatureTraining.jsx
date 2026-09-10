@@ -187,7 +187,7 @@ const SignatureTraining = () => {
             WHY MEMBERS CHOOSE US
           </span>
           <h2 className={styles.mainTitle}>
-            Train Beyond Limits
+            Train <span>Beyond Limits</span>
           </h2>
           <p className={styles.luxuryDescription}>
             We offer more than just equipment; we provide a comprehensive fitness ecosystem. Our meticulously designed spaces ensure that every aspect of your training and recovery is executed with precision and luxury.

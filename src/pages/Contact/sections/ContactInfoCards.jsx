@@ -64,7 +64,7 @@ const ContactInfoCards = () => {
           transition={{ duration: 0.8 }}
         >
           <span className={styles.sectionCategory}>REACH OUT TO US</span>
-          <h2 className={styles.sectionTitle}>Get In Touch Directly</h2>
+          <h2 className={styles.sectionTitle}>Get In Touch <span>Directly</span></h2>
           <p className={styles.sectionSubtitle}>
             Whether you want to visit, call or email, we're here to assist you every step of the way.
           </p>

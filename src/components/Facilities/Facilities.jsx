@@ -169,7 +169,9 @@ const Facilities = () => {
         {/* HEADER */}
         <div className={styles.sectionHeader}>
           <div className={styles.goldLabel}>Premium Facilities</div>
-          <h2 className={styles.mainTitle}>Everything You Need To Become Your Best.</h2>
+          <h2 className={styles.mainTitle}>
+            Everything You Need To <span>Become Your Best.</span>
+          </h2>
           <p className={styles.headerDescription}>
             Explore our meticulously curated zones designed to provide a comprehensive, elite fitness experience.
           </p>
@@ -219,7 +221,13 @@ const Facilities = () => {
                     ))}
                   </ul>
                   
-                  <button className={styles.exploreBtn} onClick={() => navigate('/programs')}>Explore</button>
+                  <button 
+                    className={styles.exploreBtn} 
+                    onClick={() => navigate('/programs')}
+                    aria-label={`Explore ${facility.name}`}
+                  >
+                    Explore
+                  </button>
                 </div>
                 
               </div>
