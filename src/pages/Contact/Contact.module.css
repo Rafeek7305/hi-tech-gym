@@ -68,11 +68,36 @@
   border-radius: 2px;
 }
 
-.goldGradientText {
-  background: linear-gradient(135deg, #FFF7AD 0%, #D4AF37 50%, #AA820A 100%);
+.goldGradientText,
+.sectionTitle span {
+  background: linear-gradient(
+    270deg,
+    var(--color-primary, #D4AF37) 0%,
+    #FFDF73 25%,
+    #FFFFFF 50%,
+    #FFDF73 75%,
+    var(--color-primary, #D4AF37) 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: shine 4s linear infinite;
   display: inline-block;
+  padding-bottom: 0.35em;
+  margin-bottom: -0.35em;
+  padding-top: 0.05em;
+  margin-top: -0.05em;
+  padding-right: 0.1em;
+  margin-right: -0.1em;
+  line-height: inherit;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
 }
 
 /* Buttons */
@@ -208,10 +233,21 @@
 .heroHeading {
   font-size: 4.25rem;
   font-weight: 900;
-  line-height: 1.1;
+  line-height: 1.3;
   color: #FFFFFF;
   margin-bottom: 1.5rem;
   letter-spacing: -1px;
+}
+
+.heroHeading span {
+  display: inline-block;
+  padding-bottom: 0.35em;
+  margin-bottom: -0.35em;
+  padding-top: 0.05em;
+  margin-top: -0.05em;
+  padding-right: 0.1em;
+  margin-right: -0.1em;
+  line-height: inherit;
 }
 
 .heroSubtext {
@@ -838,6 +874,31 @@
   color: #FFFFFF;
 }
 
+.hoursTitle span {
+  background: linear-gradient(
+    270deg,
+    var(--color-primary, #D4AF37) 0%,
+    #FFDF73 25%,
+    #FFFFFF 50%,
+    #FFDF73 75%,
+    var(--color-primary, #D4AF37) 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 4s linear infinite;
+  display: inline-block;
+  padding-bottom: 0.35em;
+  margin-bottom: -0.35em;
+  padding-top: 0.05em;
+  margin-top: -0.05em;
+  padding-right: 0.1em;
+  margin-right: -0.1em;
+  line-height: inherit;
+}
+
 .openDailyTag {
   display: inline-flex;
   align-items: center;
@@ -847,6 +908,21 @@
   border: 1px solid rgba(212, 175, 55, 0.3);
   border-radius: 999px;
   color: #D4AF37;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  flex-shrink: 0;
+}
+
+.closedDailyTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.4rem 1.1rem;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  border-radius: 999px;
+  color: #EF4444;
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 1.5px;
@@ -877,6 +953,11 @@
   border-color: rgba(212, 175, 55, 0.4);
 }
 
+.hoursRowTodayClosed {
+  background: rgba(239, 68, 68, 0.08) !important;
+  border-color: rgba(239, 68, 68, 0.4) !important;
+}
+
 .dayNameCell {
   display: flex;
   align-items: center;
@@ -899,6 +980,11 @@
   letter-spacing: 1px;
 }
 
+.todayIndicatorClosed {
+  background: #EF4444 !important;
+  color: #FFFFFF !important;
+}
+
 .hoursBadgesGroup {
   display: flex;
   align-items: center;
@@ -915,6 +1001,57 @@
 .sessionDivider {
   color: #D4AF37;
   font-size: 0.85rem;
+}
+
+/* Closed Status with Red Indicator Icon */
+.closedBadgeGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.35rem 0.9rem;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.28);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.closedBadgeGroup:hover {
+  background: rgba(239, 68, 68, 0.18);
+  border-color: rgba(239, 68, 68, 0.45);
+}
+
+.closedIndicatorDot {
+  width: 9px;
+  height: 9px;
+  min-width: 9px;
+  min-height: 9px;
+  border-radius: 50%;
+  background-color: #EF4444;
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.8), 0 0 12px rgba(239, 68, 68, 0.4);
+  display: inline-block;
+  animation: pulseRedIndicator 2s infinite ease-in-out;
+}
+
+@keyframes pulseRedIndicator {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 4px rgba(239, 68, 68, 0.7);
+  }
+  50% {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.95), 0 0 16px rgba(239, 68, 68, 0.5);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 4px rgba(239, 68, 68, 0.7);
+  }
+}
+
+.closedText {
+  color: #EF4444;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
 /* ==========================================================================

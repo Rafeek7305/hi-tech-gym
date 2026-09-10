@@ -50,7 +50,7 @@ const ContactFAQ = () => {
           transition={{ duration: 0.8 }}
         >
           <span className={styles.sectionCategory}>CLEAR ANSWERS</span>
-          <h2 className={styles.sectionTitle}>Common Questions</h2>
+          <h2 className={styles.sectionTitle}>Common <span>Questions</span></h2>
           <p className={styles.sectionSubtitle}>
             Find quick answers to common questions about visiting and contacting Hi-Tech Gym.
           </p>

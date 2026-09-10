@@ -41,7 +41,7 @@ const TeamSection = () => {
           transition={{ duration: 0.8 }}
         >
           <span className={styles.sectionCategory}>THE LEADERSHIP</span>
-          <h2 className={styles.sectionTitle}>The People Behind The Journey</h2>
+          <h2 className={styles.sectionTitle}>The People Behind <span>The Journey</span></h2>
           <p className={styles.sectionSubtitle}>
             Behind every successful gym is a team that believes in the people they train.
           </p>

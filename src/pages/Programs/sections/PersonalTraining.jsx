@@ -59,7 +59,7 @@ const PersonalTraining = () => {
             transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className={styles.sectionCategory}>FOCUSED SUPPORT</span>
-            <h2 className={styles.sectionTitle}>Train With Guidance.</h2>
+            <h2 className={styles.sectionTitle}>Train With <span>Guidance.</span></h2>
             <div className={styles.goldLine} />
 
             <p className={styles.personalLeadText}>

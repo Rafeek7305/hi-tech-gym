@@ -24,7 +24,7 @@ const FutureVision = () => {
               <span>THE ROAD AHEAD</span>
             </div>
 
-            <h2 className={styles.sectionTitle}>Our Future</h2>
+            <h2 className={styles.sectionTitle}>Our <span>Future</span></h2>
             <div className={styles.goldLine} />
 
             <div className={styles.futureTextWrapper}>

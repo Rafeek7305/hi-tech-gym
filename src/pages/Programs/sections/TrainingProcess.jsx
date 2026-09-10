@@ -44,7 +44,7 @@ const TrainingProcess = () => {
           transition={{ duration: 0.8 }}
         >
           <span className={styles.sectionCategory}>THE PROCESS</span>
-          <h2 className={styles.sectionTitle}>What Your Training Looks Like</h2>
+          <h2 className={styles.sectionTitle}>What Your Training <span>Looks Like</span></h2>
           <p className={styles.sectionSubtitle}>
             A simple, structured pathway from day one to long-term progress.
           </p>

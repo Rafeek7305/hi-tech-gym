@@ -57,7 +57,38 @@
   font-weight: 900;
   color: #FFFFFF;
   margin-bottom: 1.5rem;
-  line-height: 1.1;
+  line-height: 1.25;
+}
+
+.mainTitle span {
+  display: inline-block;
+  background: linear-gradient(
+    270deg,
+    var(--color-primary) 0%,
+    #FFDF73 25%,
+    #FFFFFF 50%,
+    #FFDF73 75%,
+    var(--color-primary) 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 4s linear infinite;
+  padding-bottom: 0.35em;
+  margin-bottom: -0.35em;
+  padding-top: 0.05em;
+  margin-top: -0.05em;
+  padding-right: 0.1em;
+  margin-right: -0.1em;
+  line-height: inherit;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
 }
 
 .luxuryDescription {

@@ -41,7 +41,7 @@ const CommunitySection = () => {
             transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className={styles.sectionCategory}>THE PEOPLE</span>
-            <h2 className={styles.sectionTitle}>Every Rep Has A Story.</h2>
+            <h2 className={styles.sectionTitle}>Every Rep Has <span>A Story.</span></h2>
             <div className={styles.goldLine} />
 
             <div className={styles.communityList}>

@@ -20,7 +20,7 @@ const OurStory = () => {
           >
             <div className={styles.sectionHeader}>
               <span className={styles.sectionCategory}>OUR PURPOSE</span>
-              <h2 className={styles.sectionTitle}>Our Story</h2>
+              <h2 className={styles.sectionTitle}>Our <span>Story</span></h2>
               <div className={styles.goldLine} />
             </div>
 

@@ -48,7 +48,7 @@ const WhatWeBelieve = () => {
           transition={{ duration: 0.8 }}
         >
           <span className={styles.sectionCategory}>CORE VALUES</span>
-          <h2 className={styles.sectionTitle}>What We Believe</h2>
+          <h2 className={styles.sectionTitle}>What We <span>Believe</span></h2>
           <p className={styles.sectionSubtitle}>
             These principles guide everything we do and every person we train.
           </p>
